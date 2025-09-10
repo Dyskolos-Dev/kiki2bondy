@@ -8,6 +8,8 @@
 </head>
 <body>
     <button class="theme-toggle" id="theme-toggle" title="Changer de thème">🌙</button>
+    <button class="kiki-btn" id="kiki-btn">Fais apparaître Kiki !</button>
+    <audio id="pakpak-audio" src="src/pakpak.mp3" preload="auto"></audio>
     <div class="container">
         <img src="src/kiki.jpg" alt="Photo de Kiki de Bondy" class="profil-kiki">
         <h1>L'histoire de Kiki de Bondy</h1>
@@ -33,23 +35,75 @@
             <p class="date">10 septembre - Bondy</p>
         </section>
     </div>
-<script>
-    const btn = document.getElementById('theme-toggle');
-    const body = document.body;
-    function setTheme(dark) {
-        if (dark) {
-            body.classList.add('dark-theme');
-            btn.textContent = '☀️';
-        } else {
-            body.classList.remove('dark-theme');
-            btn.textContent = '🌙';
-        }
+    <script>
+    // Kiki apparition logic
+    const kikiBtn = document.getElementById('kiki-btn');
+    const audio = document.getElementById('pakpak-audio');
+    let kikiInterval = null;
+    function randomBetween(a, b) {
+        return Math.random() * (b - a) + a;
     }
-    // Initial theme (light)
-    setTheme(false);
-    btn.addEventListener('click', () => {
-        setTheme(!body.classList.contains('dark-theme'));
+    function spawnKiki() {
+        // Create Kiki image
+        const img = document.createElement('img');
+        img.src = 'src/kiki.png';
+        img.alt = 'Kiki';
+        img.className = 'kiki-float';
+        // Random start position
+        const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        const size = randomBetween(60, 120);
+        img.style.width = size + 'px';
+        img.style.height = size + 'px';
+        img.style.left = randomBetween(0, vw - size) + 'px';
+        img.style.top = randomBetween(0, vh - size) + 'px';
+        // Random animation duration and direction
+        const duration = randomBetween(8, 18); // plus long pour tourner
+        const rotate = Math.random() > 0.5 ? 'kiki-rotate' : 'kiki-rotate-rev';
+        img.style.animation = `${rotate} ${duration}s linear infinite, kiki-move 27s linear forwards`;
+        document.body.appendChild(img);
+        // Remove after 27s
+        setTimeout(() => {
+            img.remove();
+        }, 27000);
+    }
+
+    kikiBtn.addEventListener('click', () => {
+        if (kikiInterval) return; // Empêche plusieurs intervalles
+        // Play sound en boucle
+        const audio = document.getElementById('pakpak-audio');
+        audio.currentTime = 0;
+        audio.loop = true;
+        audio.play();
+        spawnKiki(); // Spawn immédiat
+        kikiInterval = setInterval(() => {
+            spawnKiki();
+        }, 1200); // Une nouvelle image toutes les 1.2s
+        // Arrête après 27s
+        setTimeout(() => {
+            clearInterval(kikiInterval);
+            kikiInterval = null;
+            audio.pause();
+            audio.currentTime = 0;
+            audio.loop = false;
+        }, 27000);
     });
+        const btn = document.getElementById('theme-toggle');
+        const body = document.body;
+        function setTheme(dark) {
+            if (dark) {
+                body.classList.add('dark-theme');
+                btn.textContent = '☀️';
+            } else {
+                body.classList.remove('dark-theme');
+                btn.textContent = '🌙';
+            }
+        }
+        // Initial theme (light)
+        setTheme(false);
+        btn.addEventListener('click', () => {
+            setTheme(!body.classList.contains('dark-theme'));
+        });
 </script>
         <footer class="footer">
             Made with <span class="heart">❤️</span> by <a href="https://dyskolos.fr" target="_blank" rel="noopener" class="footer-link">Dyskolos_</a>
