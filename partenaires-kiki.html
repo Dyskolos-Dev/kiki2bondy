@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤝 Sites Partenaires de Kiki - Le Web Ring de Bondy</title>
+    <link rel="stylesheet" href="styles90s.css">
+    <style>
+        .partenaires-container {
+            max-width: 950px;
+            margin: 20px auto;
+            padding: 25px;
+            background: linear-gradient(45deg, #000080, #800080, #008000, #808000);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            border: 4px solid #C0C0C0;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(192, 192, 192, 0.6);
+            position: relative;
+        }
+
+        .partenaires-header {
+            text-align: center;
+            margin-bottom: 30px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            border: 3px solid #FFD700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partenaires-header::before {
+            content: '🤝💻🤝💻🤝💻🤝💻🤝💻🤝💻🤝💻';
+            position: absolute;
+            top: -10px;
+            left: -100%;
+            width: 200%;
+            font-size: 1.5em;
+            animation: scrollEmojis 20s linear infinite;
+            opacity: 0.4;
+        }
+
+        .partenaires-header h1 {
+            color: #00FFFF;
+            text-shadow: 2px 2px 4px #000;
+            font-size: 2.2em;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .partenaires-subtitle {
+            color: #FFFF00;
+            font-size: 1.1em;
+            margin-top: 15px;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        .webring-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin: 20px 0;
+            border: 2px dashed #00FFFF;
+            border-radius: 10px;
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        .partenaires-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .partner-site {
+            background: linear-gradient(135deg, #C0C0C0, #808080);
+            border: 4px ridge #C0C0C0;
+            border-radius: 15px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .partner-site:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+            border-color: #FFD700;
+        }
+
+        .partner-banner {
+            background: linear-gradient(90deg, #FF0000, #00FF00, #0000FF, #FFFF00);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+            color: #FFFFFF;
+            font-weight: bold;
+            font-size: 1.4em;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #000000;
+            text-shadow: 2px 2px 4px #000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .partner-banner.blink-banner {
+            animation: blink-animation 1s steps(2, start) infinite, gradientShift 3s ease infinite;
+        }
+
+        @keyframes blink-animation {
+            to { visibility: hidden; }
+        }
+
+        .partner-url {
+            font-family: "Courier New", monospace;
+            background: #000000;
+            color: #00FF00;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #00FF00;
+            font-size: 1.1em;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .partner-description {
+            color: #000080;
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 5px solid #FF0080;
+        }
+
+        .partner-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(45deg, #008080, #800080);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 8px;
+            border-radius: 5px;
+            font-size: 0.85em;
+            border: 2px solid #FFFFFF;
+        }
+
+        .stat-number {
+            font-weight: bold;
+            font-size: 1.2em;
+            display: block;
+        }
+
+        .partner-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .partner-btn {
+            background: linear-gradient(45deg, #FF0080, #8000FF);
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 2px solid #FFD700;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .partner-btn:hover {
+            background: linear-gradient(45deg, #8000FF, #FF0080);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 0, 128, 0.4);
+        }
+
+        .visitor-counter-partners {
+            text-align: center;
+            margin: 30px 0;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #00FF00;
+        }
+
+        .retour-btn {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #FF0080, #8000FF);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            border: 3px solid #FFD700;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 0, 128, 0.4);
+        }
+
+        .retour-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 0, 128, 0.6);
+            background: linear-gradient(45deg, #8000FF, #FF0080);
+        }
+
+        .center-btn {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .award-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border: 2px solid #B8860B;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            animation: rotate 4s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .under-construction {
+            background: #FFFF00;
+            color: #FF0000;
+            font-weight: bold;
+            text-align: center;
+            padding: 5px;
+            margin: 10px 0;
+            border: 2px solid #FF0000;
+            animation: blink-animation 1s steps(2, start) infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="partenaires-container">
+        <div class="partenaires-header">
+            <h1>🤝 Sites Partenaires 🤝</h1>
+            <div class="partenaires-subtitle">
+                🌐 Le Web Ring Officiel de Kiki 🌐<br>
+                <em>"Nos amis du net depuis 1999"</em>
+            </div>
+        </div>
+
+        <div class="webring-info">
+            <strong>🔗 REJOIGNEZ LE WEB RING DE KIKI ! 🔗</strong><br>
+            Échange de liens gratuit - Trafic garanti - Communauté active !<br>
+            <small>📧 Contact : kiki@bondy.fr | 📞 01.23.45.67.89</small>
+        </div>
+
+        <div class="visitor-counter-partners">
+            <span style="color: #00FF00; font-weight: bold;">🤝 PARTENARIATS VUS PAR : </span>
+            <span id="visiteurCount" style="color: #FFFF00; font-size: 1.3em; font-weight: bold;">0</span>
+            <span style="color: #00FF00; font-weight: bold;"> WEBMASTERS PRO ! 🤝</span>
+        </div>
+
+        <div class="partenaires-grid">
+            <!-- Partenaire 1: Claude-PMU.net -->
+            <div class="partner-site">
+                <div class="award-badge">🏆</div>
+                <div class="partner-banner blink-banner">🐎 CLAUDE-PMU.NET 🐎</div>
+                <div class="partner-url">http://www.claude-pmu.net</div>
+                <div class="partner-description">
+                    <strong>Le roi incontesté du tiercé !</strong><br>
+                    Claude partage ses pronostics exclusifs, ses combines secrètes et ses méthodes infaillibles. 
+                    Grâce à lui, Kiki a touché 3 tiercés en 1999 ! Site de référence du PMU en France.
+                    <div class="under-construction">🚧 SECTION VIP EN CONSTRUCTION 🚧</div>
+                </div>
+                <div class="partner-stats">
+                    <div class="stat-box">
+                        <span class="stat-number">94%</span>
+                        Taux Réussite
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">2847</span>
+                        Visiteurs/Jour
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">156</span>
+                        Tiercés Gagnés
+                    </div>
+                </div>
+                <div class="partner-buttons">
+                    <a href="#" class="partner-btn">🎯 Voir les Pronostics</a>
+                    <a href="#" class="partner-btn">💰 Section VIP</a>
+                    <a href="#" class="partner-btn">📊 Statistiques</a>
+                </div>
+            </div>
+
+            <!-- Partenaire 2: PingouinProf.com -->
+            <div class="partner-site">
+                <div class="award-badge">🐧</div>
+                <div class="partner-banner">🐧 PINGOUINPROF.COM 🐧</div>
+                <div class="partner-url">http://www.pingouinprof.com</div>
+                <div class="partner-description">
+                    <strong>Éducation antarctique de qualité !</strong><br>
+                    Le Professeur Pingouin enseigne les mathématiques, la géographie polaire et les techniques 
+                    de glissade sur le ventre. Site éducatif recommandé par le Ministère de l'Antarctique.
+                    <div class="under-construction">❄️ COURS D'HIVER EN PRÉPARATION ❄️</div>
+                </div>
+                <div class="partner-stats">
+                    <div class="stat-box">
+                        <span class="stat-number">1247</span>
+                        Élèves Inscrits
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">98°</span>
+                        Taux de Froid
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">42</span>
+                        Cours Glacés
+                    </div>
+                </div>
+                <div class="partner-buttons">
+                    <a href="#" class="partner-btn">📚 Cours Gratuits</a>
+                    <a href="#" class="partner-btn">🧊 Zone Polaire</a>
+                    <a href="#" class="partner-btn">🎓 Diplômes</a>
+                </div>
+            </div>
+
+            <!-- Partenaire 3: ManifestantStyle.fr -->
+            <div class="partner-site">
+                <div class="award-badge">✊</div>
+                <div class="partner-banner blink-banner">✊ MANIFESTANTSTYLE.FR ✊</div>
+                <div class="partner-url">http://www.manifestantstyle.fr</div>
+                <div class="partner-description">
+                    <strong>Mode révolutionnaire et looks de contestation !</strong><br>
+                    Toute la mode pour manifester avec style : banderoles tendance, slogans à la mode, 
+                    et les dernières techniques de protestation chic. Kiki y achète tous ses accessoires !
+                    <div class="under-construction">🔥 COLLECTION AUTOMNE EN COURS 🔥</div>
+                </div>
+                <div class="partner-stats">
+                    <div class="stat-box">
+                        <span class="stat-number">573</span>
+                        Styles Révol.
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">89</span>
+                        Manifs Mode
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">100%</span>
+                        Looks Stylés
+                    </div>
+                </div>
+                <div class="partner-buttons">
+                    <a href="#" class="partner-btn">👕 Boutique</a>
+                    <a href="#" class="partner-btn">📢 Slogans</a>
+                    <a href="#" class="partner-btn">✊ Rejoindre</a>
+                </div>
+            </div>
+
+            <!-- Bonus: Site mystère -->
+            <div class="partner-site">
+                <div class="award-badge">❓</div>
+                <div class="partner-banner">❓ SITE-MYSTERE.??? ❓</div>
+                <div class="partner-url">http://www.????????.mystery</div>
+                <div class="partner-description">
+                    <strong>Le site secret que tout le monde cherche !</strong><br>
+                    Personne ne sait ce qu'il y a sur ce site, mais tout le monde en parle. Rumeurs, légendes, 
+                    mystères... Seuls les initiés connaissent l'URL complète. Kiki l'a trouvé par hasard.
+                    <div class="under-construction">🔒 ACCÈS RÉSERVÉ AUX MEMBRES 🔒</div>
+                </div>
+                <div class="partner-stats">
+                    <div class="stat-box">
+                        <span class="stat-number">???</span>
+                        Mystère Total
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">∞</span>
+                        Secrets
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">0</span>
+                        Info Publique
+                    </div>
+                </div>
+                <div class="partner-buttons">
+                    <a href="#" class="partner-btn">🔍 Enquêter</a>
+                    <a href="#" class="partner-btn">🗝️ Mot de Passe</a>
+                    <a href="#" class="partner-btn">👁️ Observer</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="center-btn">
+            <a href="index.html" class="retour-btn">🏠 Retour au Site Principal</a>
+        </div>
+    </div>
+
+    <script>
+        // Système de compteur pour la page partenaires
+        let visiteurCount = localStorage.getItem('kiki-partenaires-visiteurs') || 0;
+        visiteurCount = parseInt(visiteurCount) + 1;
+        localStorage.setItem('kiki-partenaires-visiteurs', visiteurCount);
+        document.getElementById('visiteurCount').textContent = visiteurCount;
+
+        // Messages d'alerte années 90
+        const alertMessages = [
+            "🚨 ALERTE WEB RING ! Tu viens de découvrir les meilleurs sites du net !",
+            "🎯 ATTENTION ! Ces sites sont tous recommandés par Kiki himself !",
+            "⚡ HOT ! Tu as accès aux sites les plus cool de 1999 !",
+            "🔥 EXCLUSIF ! Le web ring de Kiki, réservé aux vrais connaisseurs !",
+            "💎 PREMIUM ! Tu navigues maintenant dans la zone VIP du web !"
+        ];
+
+        // Popup aléatoire après 4 secondes
+        setTimeout(() => {
+            if (Math.random() > 0.6) {
+                const message = alertMessages[Math.floor(Math.random() * alertMessages.length)];
+                alert(message);
+            }
+        }, 4000);
+
+        // Effet de clignotement aléatoire sur les bannières
+        setInterval(() => {
+            const banners = document.querySelectorAll('.partner-banner');
+            banners.forEach(banner => {
+                if (Math.random() > 0.8) {
+                    banner.style.visibility = banner.style.visibility === 'hidden' ? 'visible' : 'hidden';
+                    setTimeout(() => {
+                        banner.style.visibility = 'visible';
+                    }, 200);
+                }
+            });
+        }, 3000);
+
+        // Faux liens qui simulent la navigation
+        document.querySelectorAll('.partner-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const messages = [
+                    "🚧 Site temporairement fermé pour mise à jour !",
+                    "💻 Erreur 404 : Page introuvable (c'est normal en 1999)",
+                    "⏳ Chargement en cours... (connexion 56k détectée)",
+                    "🔐 Accès réservé aux membres premium !",
+                    "🎯 Redirection vers Caramail en cours..."
+                ];
+                alert(messages[Math.floor(Math.random() * messages.length)]);
+            });
+        });
+    </script>
+</body>
+</html>

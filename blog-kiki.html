@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 LE BLOG DE KIKI - Pensées Profondes & Délires 🔥</title>
+    <link rel="stylesheet" href="styles90s.css">
+    <style>
+        .blog-header {
+            background: linear-gradient(45deg, #FF0000, #FF8000, #FFFF00, #00FF00, #0080FF, #8000FF);
+            background-size: 300% 300%;
+            animation: rainbow-bg 3s ease infinite;
+            text-align: center;
+            padding: 20px;
+            border: 5px solid #FFFFFF;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes rainbow-bg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .blog-title {
+            font-size: 36px;
+            color: #FFFFFF;
+            text-shadow: 3px 3px 0px #000000;
+            animation: title-bounce 2s ease-in-out infinite;
+            margin: 0;
+        }
+        
+        @keyframes title-bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .blog-subtitle {
+            font-size: 18px;
+            color: #FFFF00;
+            margin: 10px 0 0 0;
+            font-weight: bold;
+            text-shadow: 2px 2px 0px #000000;
+        }
+        
+        .blog-post {
+            background: linear-gradient(135deg, #800080, #008080);
+            border: 5px ridge #C0C0C0;
+            margin: 20px 0;
+            box-shadow: 8px 8px 0px #000000;
+            animation: post-glow 4s ease-in-out infinite alternate;
+        }
+        
+        @keyframes post-glow {
+            from { box-shadow: 8px 8px 0px #000000, 0 0 10px #800080; }
+            to { box-shadow: 8px 8px 0px #000000, 0 0 25px #FF00FF, 0 0 35px #FF00FF; }
+        }
+        
+        .post-header {
+            background: linear-gradient(90deg, #FF0000, #FF8000);
+            padding: 15px;
+            border-bottom: 3px solid #FFFFFF;
+        }
+        
+        .post-title {
+            color: #FFFFFF;
+            font-size: 22px;
+            margin: 0 0 5px 0;
+            text-shadow: 2px 2px 0px #000000;
+            font-weight: bold;
+        }
+        
+        .post-date {
+            color: #FFFF00;
+            font-size: 12px;
+            margin: 0;
+            font-weight: bold;
+        }
+        
+        .post-content {
+            padding: 20px;
+            color: #FFFFFF;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        .mood-indicator {
+            display: inline-block;
+            padding: 3px 8px;
+            background: #000000;
+            color: #00FF00;
+            border: 2px solid #00FF00;
+            font-family: "Courier New", monospace;
+            font-size: 10px;
+            margin-left: 10px;
+            animation: mood-blink 2s linear infinite;
+        }
+        
+        @keyframes mood-blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(45deg, #FFFF00, #FF8000);
+            color: #000000;
+            border: 3px outset #FFFFFF;
+            padding: 10px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+            box-shadow: 3px 3px 0px #000000;
+            animation: back-pulse 2s ease-in-out infinite;
+            z-index: 100;
+        }
+        
+        @keyframes back-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .back-button:hover {
+            background: linear-gradient(45deg, #00FFFF, #00FF00);
+            border: 3px inset #FFFFFF;
+        }
+        
+        .quote-highlight {
+            background: #FFFF00;
+            color: #000000;
+            padding: 2px 4px;
+            font-weight: bold;
+            animation: highlight-flash 3s ease-in-out infinite;
+        }
+        
+        @keyframes highlight-flash {
+            0%, 100% { background: #FFFF00; }
+            50% { background: #FF00FF; color: #FFFFFF; }
+        }
+        
+        .emoticon {
+            font-size: 18px;
+            animation: emoticon-dance 1s ease-in-out infinite;
+            display: inline-block;
+        }
+        
+        @keyframes emoticon-dance {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+    </style>
+</head>
+<body>
+    <marquee behavior="scroll" direction="right" scrollamount="4">
+        🌟 BIENVENUE SUR LE BLOG DE KIKI 🌟 MES PENSÉES LES PLUS PROFONDES 🌟 ATTENTION ÇA DÉCHIRE 🌟
+    </marquee>
+    
+    <a href="index.html" class="back-button">🏠 RETOUR</a>
+    
+    <div class="container">
+        <div class="blog-header">
+            <h1 class="blog-title">🔥 LE BLOG DE KIKI 🔥</h1>
+            <p class="blog-subtitle">Mes délires, mes rêves, ma vie de manifestant professionnel</p>
+        </div>
+        
+        <!-- Post 1 -->
+        <article class="blog-post">
+            <div class="post-header">
+                <h2 class="post-title">Ma journée type au PMU de Carnot <span class="emoticon">🍻</span></h2>
+                <p class="post-date">10 septembre 2025, 06:00 AM <span class="mood-indicator">MOOD: DÉTER</span></p>
+            </div>
+            <div class="post-content">
+                <p>Salut les amis ! Aujourd'hui je vous raconte ma routine matinale au PMU place Carnot. 
+                <span class="quote-highlight">6h du mat, café noir, grille de loto</span> et je regarde les gens partir au boulot LOL <span class="emoticon">😎</span></p>
+                
+                <p>Le patron du PMU me dit toujours : "Kiki, tu vas pas rester là toute la journée ?" 
+                Et moi je réponds : <strong>"Claude, mon pote, j'ai pas d'autre endroit où aller depuis que j'ai raté ma vocation de prof !"</strong> <span class="emoticon">🤣</span></p>
+                
+                <p>Aujourd'hui j'ai joué les numéros suivants au loto : 7, 14, 21, 28, 35 et 42. 
+                Pourquoi ? Parce que c'est les tables de multiplication de 7 ! 
+                <span class="quote-highlight">Une fois prof, toujours prof dans l'âme</span> ! <span class="emoticon">🧠</span></p>
+                
+                <p>PS: J'ai rien gagné mais au moins j'ai gardé ma logique mathématique ! <span class="emoticon">💸</span></p>
+            </div>
+        </article>
+        
+        <!-- Post 2 -->
+        <article class="blog-post">
+            <div class="post-header">
+                <h2 class="post-title">Pourquoi je manifeste le 10 septembre ? <span class="emoticon">✊</span></h2>
+                <p class="post-date">09 septembre 2025, 11:30 PM <span class="mood-indicator">MOOD: RÉVOLTÉ</span></p>
+            </div>
+            <div class="post-content">
+                <p>Mes chers lecteurs (salut maman !), demain c'est LE JOUR ! 
+                Je descends dans la rue pour revendiquer <span class="quote-highlight">le droit de rêver sans avoir de style</span> ! <span class="emoticon">🔥</span></p>
+                
+                <p>On m'a dit que j'avais pas le profil pour être prof. Que j'étais "trop original". 
+                Mais excusez-moi, depuis quand l'originalité c'est un défaut ?! 
+                <strong>J'assume mes chemises à fleurs et mes chaussettes dépareillées !</strong> <span class="emoticon">👕</span></p>
+                
+                <p>Ma pancarte sera magnifique : <span class="quote-highlight">"MÊME SANS STYLE, J'AI LE DROIT DE RÊVER !"</span> 
+                en lettres fluo rose et vert. Claude du PMU m'a dit que c'était "un peu trop" mais moi je dis que c'est PARFAIT ! <span class="emoticon">📢</span></p>
+                
+                <p>Rendez-vous place de la République à 14h ! Amenez vos pancartes et votre bonne humeur ! 
+                Et si vous me voyez pas, je serai sûrement au PMU en train de célébrer la révolution ! <span class="emoticon">🎉</span></p>
+            </div>
+        </article>
+        
+        <!-- Post 3 -->
+        <article class="blog-post">
+            <div class="post-header">
+                <h2 class="post-title">Mes conseils pour rater sa vie avec panache <span class="emoticon">💫</span></h2>
+                <p class="post-date">08 septembre 2025, 08:45 PM <span class="mood-indicator">MOOD: PHILOSOPHE</span></p>
+            </div>
+            <div class="post-content">
+                <p>Salut les ratés magnifiques ! Aujourd'hui je partage avec vous mes <span class="quote-highlight">10 conseils pour échouer avec style</span> ! <span class="emoticon">✨</span></p>
+                
+                <p><strong>1.</strong> Portez toujours des chaussettes différentes. Ça montre votre côté rebelle ! <span class="emoticon">🧦</span><br>
+                <strong>2.</strong> Arrivez en retard aux entretiens, mais avec une excuse originale ("J'ai aidé un chat coincé dans un arbre") <span class="emoticon">🐱</span><br>
+                <strong>3.</strong> Utilisez des mots compliqués même si vous savez pas ce qu'ils veulent dire. Ex: "Je suis plein de perspicacité circonlocutoire !" <span class="emoticon">🤓</span></p>
+                
+                <p><strong>4.</strong> Donnez des surnoms à tous vos collègues. Claude du PMU il s'appelle maintenant "Claudator 3000" <span class="emoticon">🤖</span><br>
+                <strong>5.</strong> <span class="quote-highlight">Toujours finir ses phrases par "LOL" dans les situations sérieuses</span> LOL <span class="emoticon">😂</span></p>
+                
+                <p>Voilà pour aujourd'hui ! La suite dans un prochain épisode ! 
+                N'oubliez pas : <strong>échouer c'est déjà participer !</strong> <span class="emoticon">🏆</span></p>
+            </div>
+        </article>
+        
+        <!-- Post 4 -->
+        <article class="blog-post">
+            <div class="post-header">
+                <h2 class="post-title">J'ai testé : devenir influenceur kebab <span class="emoticon">🥙</span></h2>
+                <p class="post-date">05 septembre 2025, 07:20 PM <span class="mood-indicator">MOOD: ENTREPRENEUR</span></p>
+            </div>
+            <div class="post-content">
+                <p>Salut mes fidèles ! Nouvelle idée géniale : devenir <span class="quote-highlight">le premier influenceur kebab de Bondy</span> ! <span class="emoticon">📸</span></p>
+                
+                <p>J'ai créé un Instagram : @KikiBondyKebab et j'ai commencé à poster mes reviews de kebabs du coin. 
+                Mon premier post : une photo artistique de mon kebab salade-tomate-oignon avec le hashtag 
+                <strong>#KebabLife #BondyStyle #ManifestantFaim</strong> <span class="emoticon">📱</span></p>
+                
+                <p>Résultat après 3 jours : <span class="quote-highlight">2 likes (ma mère et Claude du PMU)</span> et 1 commentaire : 
+                "Kiki tu devrais arrêter" - Merci maman pour ce soutien inconditionnel ! <span class="emoticon">❤️</span></p>
+                
+                <p>Mais je lâche rien ! Demain je teste le tacos 3 viandes du coin avec une analyse gastronomique complète. 
+                Qui sait, peut-être que je vais révolutionner le monde du food blogging ! <span class="emoticon">🌟</span></p>
+                
+                <p>Stay tuned les amis ! La gloire m'attend (ou pas) ! <span class="emoticon">🚀</span></p>
+            </div>
+        </article>
+        
+        <!-- Post 5 -->
+        <article class="blog-post">
+            <div class="post-header">
+                <h2 class="post-title">Mes rêves bizarres de prof raté <span class="emoticon">😴</span></h2>
+                <p class="post-date">03 septembre 2025, 02:30 AM <span class="mood-indicator">MOOD: ONIRIQUE</span></p>
+            </div>
+            <div class="post-content">
+                <p>Salut les insomniaques ! Il est 2h30 du mat et je peux pas dormir alors je vous raconte mon rêve de cette nuit ! <span class="emoticon">🌙</span></p>
+                
+                <p>Je rêvais que j'étais prof mais <span class="quote-highlight">dans une école pour pingouins</span> ! 
+                J'enseignais les maths à des pingouins qui portaient des petites lunettes ! <span class="emoticon">🐧</span></p>
+                
+                <p>Le plus bizarre c'est qu'ils étaient super doués ! Ils résolvaient des équations du second degré plus vite que moi ! 
+                Y'avait un pingouin qui s'appelait <strong>Jean-Claude Van Pingouin</strong> qui était le chef de classe ! <span class="emoticon">🥋</span></p>
+                
+                <p>À la fin du rêve, le directeur (un manchot empereur en costume-cravate) m'a dit : 
+                <span class="quote-highlight">"Kiki, vous avez enfin trouvé votre voie ! Bienvenue à l'École Antarctique !"</span> <span class="emoticon">👔</span></p>
+                
+                <p>Je me suis réveillé en sueur. Vous croyez que c'est un signe ? 
+                Peut-être que je devrais me reconvertir dans l'enseignement aux animaux polaires ! <span class="emoticon">❄️</span></p>
+                
+                <p>Bon allez, je vais essayer de redormir. À demain les amis ! <span class="emoticon">😴</span></p>
+            </div>
+        </article>
+    </div>
+    
+    <!-- Compteur de visiteurs (copié du fichier principal) -->
+    <div class="visitor-counter">
+        <img src="https://web.archive.org/web/19961220154510im_/http://www.digits.com/odometer.gif" alt="Visitor counter" width="15" height="20" style="image-rendering: pixelated;">
+        <span class="counter-text">Blog vues:</span>
+        <div class="counter-display">
+            <span id="blog-visitor-count">000042</span>
+        </div>
+        <div class="counter-info">
+            <small>Posts lus: <span id="posts-read">5</span></small><br>
+            <small>LOL/minute: <span id="lol-rate">∞</span></small>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>© 2025 - Le Blog de Kiki | Tous droits réservés (ou pas) | Made with <span style="color: #FF0000;">❤️</span> and <span style="color: #00FF00;">🥙</span></p>
+        <marquee direction="left" scrollamount="2" style="font-size: 10px; color: #FFFF00;">
+            Kiki de Bondy - Blogger professionnel depuis 3 jours - Expert en échec depuis toujours
+        </marquee>
+    </footer>
+    
+    <script>
+        // Animation du compteur blog
+        document.addEventListener('DOMContentLoaded', function() {
+            const blogCount = document.getElementById('blog-visitor-count');
+            let count = 42;
+            
+            function updateBlogCounter() {
+                count += Math.floor(Math.random() * 3) + 1;
+                blogCount.textContent = String(count).padStart(6, '0');
+            }
+            
+            setInterval(updateBlogCounter, 5000);
+            
+            // Animation aléatoire des emoticons
+            const emoticons = document.querySelectorAll('.emoticon');
+            setInterval(() => {
+                const randomEmoticon = emoticons[Math.floor(Math.random() * emoticons.length)];
+                randomEmoticon.style.animation = 'none';
+                setTimeout(() => {
+                    randomEmoticon.style.animation = 'emoticon-dance 1s ease-in-out infinite';
+                }, 100);
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

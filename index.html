@@ -12,6 +12,12 @@
         <ul>
             <li><button class="kiki-btn" id="kiki-btn">🎉 FAIS APPARAÎTRE KIKI ! 🎉</button></li>
             <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener" class="kiki-who-btn">🌟 QUI EST KIKI ? 🌟</a></li>
+            <li><a href="blog-kiki.html" class="kiki-blog-btn">📝 LE BLOG DE KIKI 📝</a></li>
+            <li><a href="quiz-kiki.html" class="kiki-quiz-btn">🧠 LE QUIZ DE KIKI 🧠</a></li>
+            <li><a href="horoscope-kiki.html" class="kiki-horoscope-btn">🔮 HOROSCOPE KIKI 🔮</a></li>
+            <li><a href="jeux-kiki.html" class="kiki-games-btn">🎮 JEUX DE KIKI 🎮</a></li>
+            <li><a href="exploits-kiki.html" class="kiki-exploits-btn">🏆 LES EXPLOITS DE KIKI 🏆</a></li>
+            <li><a href="partenaires-kiki.html" class="kiki-partenaires-btn">🤝 SITES PARTENAIRES 🤝</a></li>
             <li><div class="menu-decoration" id="menu-cool-btn">∞ MENU COOL ∞</div></li>
         </ul>
     </nav>
@@ -45,8 +51,15 @@
         </section>
     </div>
     <div class="visitor-counter">
-        <img src="https://i.imgur.com/placeholder.gif" alt="You are visitor number" width="20" height="15">
-        Vous êtes le visiteur n°: <span style="color: red; font-weight: bold;">1337</span>
+        <img src="https://web.archive.org/web/19961220154510im_/http://www.digits.com/odometer.gif" alt="Visitor counter" width="15" height="20" style="image-rendering: pixelated;">
+        <span class="counter-text">Vous êtes le visiteur n°:</span>
+        <div class="counter-display">
+            <span id="visitor-count">000000</span>
+        </div>
+        <div class="counter-info">
+            <small>Dernière visite: <span id="last-visit">Jamais</span></small><br>
+            <small>Total aujourd'hui: <span id="daily-count">0</span></small>
+        </div>
     </div>
     
     <!-- Popup années 90 -->
@@ -65,6 +78,14 @@
                     <a href="kiki-profile.html" class="popup-btn">💕 OUI ! 💕</a>
                 </div>
             </div>
+        </div>
+    </div>
+    
+    <!-- Mascotte Kiki qui suit la souris -->
+    <div class="kiki-mascot-follower" id="kiki-mascot">
+        <img src="src/kiki.png" alt="Mascotte Kiki" class="mascot-image">
+        <div class="mascot-speech-bubble" id="mascot-bubble">
+            <span id="mascot-text">Salut moi c'est Kiki ! 🎉</span>
         </div>
     </div>
     
@@ -105,6 +126,92 @@
     </div>
     
     <script>
+    // COMPTEUR DE VISITEURS AUTHENTIQUE ANNÉES 90
+    function initVisitorCounter() {
+        const visitorCountElement = document.getElementById('visitor-count');
+        const lastVisitElement = document.getElementById('last-visit');
+        const dailyCountElement = document.getElementById('daily-count');
+        
+        // Récupérer les données du localStorage
+        let totalVisits = parseInt(localStorage.getItem('kiki-total-visits')) || 1337; // Commence à 1337 pour le style
+        let lastVisit = localStorage.getItem('kiki-last-visit');
+        let dailyVisits = parseInt(localStorage.getItem('kiki-daily-visits')) || 0;
+        let lastVisitDate = localStorage.getItem('kiki-last-visit-date');
+        
+        // Obtenir la date d'aujourd'hui
+        const today = new Date().toDateString();
+        
+        // Réinitialiser le compteur quotidien si c'est un nouveau jour
+        if (lastVisitDate !== today) {
+            dailyVisits = 0;
+            localStorage.setItem('kiki-last-visit-date', today);
+        }
+        
+        // Incrémenter les compteurs
+        totalVisits++;
+        dailyVisits++;
+        
+        // Sauvegarder dans localStorage
+        localStorage.setItem('kiki-total-visits', totalVisits);
+        localStorage.setItem('kiki-daily-visits', dailyVisits);
+        localStorage.setItem('kiki-last-visit', new Date().toLocaleString('fr-FR'));
+        
+        // Animation du compteur qui monte
+        function animateCounter(target, finalValue) {
+            let currentValue = Math.max(0, finalValue - 50); // Commence un peu avant
+            const increment = Math.ceil((finalValue - currentValue) / 30);
+            
+            function updateCounter() {
+                if (currentValue < finalValue) {
+                    currentValue += increment;
+                    if (currentValue > finalValue) currentValue = finalValue;
+                    target.textContent = String(currentValue).padStart(6, '0');
+                    setTimeout(updateCounter, 50);
+                } else {
+                    // Animation finale avec clignotement
+                    setTimeout(() => {
+                        target.style.animation = 'counter-flicker 3s linear infinite, counter-success 0.5s ease-in-out';
+                    }, 200);
+                }
+            }
+            updateCounter();
+        }
+        
+        // Lancer l'animation
+        setTimeout(() => {
+            animateCounter(visitorCountElement, totalVisits);
+        }, 500);
+        
+        // Mettre à jour les autres infos
+        dailyCountElement.textContent = dailyVisits;
+        if (lastVisit) {
+            lastVisitElement.textContent = lastVisit;
+        }
+        
+        // Son de bienvenue (optionnel)
+        try {
+            const welcomeSound = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmcdBDuR1/LNeSsFJHfH8N2QQAoUXrTp66hVFApGn+DyvmcdBDuR1/LNeSsFJHfH8N2QQAoUXrTp66hVFApGn+DyvmcdBDuR1/LNeSsFJHfH8N2QQAoUXrTp66hVFApGn+DyvmcdBDuR1/LNeSsFJHfH8N2QQAoUXrTp66hVFApGn+DyvmcdBDuR1/LNeSsFJHfH8N2QQAoUXrTp66hVFApGn+DyvmcdBDuR1/LNeSsFJHfH8N2QQAoUXrTp66hVFApGn+DyvmcdBDuR1/LNeSsFJHfH8N2QQAoUXrTp66hVFApGn+DyvmcdBDuR1/LNeSsFJHfH8N2QQAoUXrTp66hVFApGn+DyvmcdBDuR1/LNeSsFJHfH8N2QQAoUXrTp66hVFApGn+DyvmcdBDuR1/LNeSsFJHfH8N2QQAoUXrTp66hVFApGn+DyvmcdBDuR1/LNeSsFJHfH8N2QQAoUXrTp66hVFA==');
+            welcomeSound.volume = 0.3;
+            // welcomeSound.play(); // Décommentez si vous voulez le son
+        } catch (e) {
+            // Ignore si le son ne marche pas
+        }
+    }
+    
+    // CSS animation supplémentaire pour le succès
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes counter-success {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); color: #FFFF00; }
+            100% { transform: scale(1); }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Initialiser le compteur quand la page charge
+    window.addEventListener('load', initVisitorCounter);
+
     // Menu Kebab
     const menuCoolBtn = document.getElementById('menu-cool-btn');
     const kebabOverlay = document.getElementById('kebab-menu-overlay');
@@ -208,6 +315,202 @@
             audio.currentTime = 0;
             audio.loop = false;
         }, 27000);
+    });
+    
+    // MASCOTTE KIKI QUI SUIT LA SOURIS
+    const kikiBuddy = {
+        element: null,
+        speechBubble: null,
+        speechText: null,
+        currentX: 0,
+        currentY: 0,
+        targetX: 0,
+        targetY: 0,
+        lastMoveTime: 0,
+        sleepTimer: null,
+        messages: [
+            "Salut moi c'est Kiki ! 🎉",
+            "Tu veux aller au PMU ? 🍻",
+            "J'ai une manif à 14h ! ✊",
+            "Mes chaussettes sont dépareillées ! 🧦",
+            "Kebab ou tacos ? 🥙",
+            "Claude dit bonjour ! 👋",
+            "6h du mat, l'heure des champions ! ⏰",
+            "Ma pancarte est prête ! 📢",
+            "Les pingouins m'adorent ! 🐧",
+            "Style ? Quel style ? 😎",
+            "PMU place Carnot forever ! 🏆",
+            "Prof raté mais stylé ! 📚"
+        ],
+        
+        init() {
+            this.element = document.getElementById('kiki-mascot');
+            this.speechBubble = document.getElementById('mascot-bubble');
+            this.speechText = document.getElementById('mascot-text');
+            
+            // Position initiale
+            this.currentX = 100;
+            this.currentY = 100;
+            this.updatePosition();
+            
+            // Animation d'entrée
+            this.element.classList.add('entering');
+            setTimeout(() => {
+                this.element.classList.remove('entering');
+            }, 1000);
+            
+            // Événements
+            this.bindEvents();
+            this.startFollowing();
+            
+            // Message d'accueil
+            setTimeout(() => {
+                this.showMessage(this.messages[0], 3000);
+            }, 1500);
+        },
+        
+        bindEvents() {
+            // Suivre la souris
+            document.addEventListener('mousemove', (e) => {
+                this.targetX = e.clientX;
+                this.targetY = e.clientY;
+                this.lastMoveTime = Date.now();
+                this.wakeUp();
+            });
+            
+            // Clic sur la mascotte
+            this.element.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.onMascotClick();
+            });
+            
+            // Événements spéciaux
+            document.addEventListener('click', (e) => {
+                if (Math.random() < 0.3) {
+                    this.showRandomMessage();
+                }
+            });
+            
+            // Détection d'inactivité
+            setInterval(() => {
+                this.checkSleep();
+            }, 1000);
+        },
+        
+        startFollowing() {
+            const followLoop = () => {
+                // Suivre avec un délai fluide
+                const dx = this.targetX - this.currentX;
+                const dy = this.targetY - this.currentY;
+                
+                // Vitesse de suivi (plus lent = plus naturel)
+                this.currentX += dx * 0.1;
+                this.currentY += dy * 0.1;
+                
+                this.updatePosition();
+                requestAnimationFrame(followLoop);
+            };
+            followLoop();
+        },
+        
+        updatePosition() {
+            // Décalage pour que Kiki soit plus sur le côté et ne gêne pas
+            const offsetX = -80; // Plus loin sur le côté gauche
+            const offsetY = -50; // Plus haut pour éviter le curseur
+            
+            this.element.style.left = (this.currentX + offsetX) + 'px';
+            this.element.style.top = (this.currentY + offsetY) + 'px';
+        },
+        
+        onMascotClick() {
+            // Animation d'excitation
+            this.element.classList.add('excited');
+            setTimeout(() => {
+                this.element.classList.remove('excited');
+            }, 2000);
+            
+            // Message spécial
+            const specialMessages = [
+                "Hé ! Tu m'as cliqué ! 😄",
+                "Arrête de me chatouiller ! 😂",
+                "Tu veux ma photo dédicacée ? 📸",
+                "Je suis pas un Pokémon ! 😅",
+                "Clique sur les boutons plutôt ! 👆",
+                "J'ai des choses à te dire ! 💬",
+                "Tu me fais rougir ! 😊",
+                "On va au PMU ensemble ? 🚶‍♂️"
+            ];
+            
+            const message = specialMessages[Math.floor(Math.random() * specialMessages.length)];
+            this.showMessage(message, 2500);
+        },
+        
+        showMessage(text, duration = 2000) {
+            this.speechText.textContent = text;
+            this.speechBubble.classList.add('show');
+            
+            setTimeout(() => {
+                this.speechBubble.classList.remove('show');
+            }, duration);
+        },
+        
+        showRandomMessage() {
+            if (!this.speechBubble.classList.contains('show')) {
+                const message = this.messages[Math.floor(Math.random() * this.messages.length)];
+                this.showMessage(message, 2000);
+            }
+        },
+        
+        checkSleep() {
+            const timeSinceLastMove = Date.now() - this.lastMoveTime;
+            
+            if (timeSinceLastMove > 10000) { // 10 secondes
+                this.sleep();
+            }
+        },
+        
+        sleep() {
+            if (!this.element.classList.contains('sleeping')) {
+                this.element.classList.add('sleeping');
+                
+                const sleepMessages = [
+                    "Zzz... je rêve de kebabs... 😴",
+                    "Zzz... les pingouins dansent... 🐧",
+                    "Zzz... je gagne au loto... 💰",
+                    "Zzz... je suis prof... 📚",
+                    "Zzz... Claude me paie un coup... 🍻"
+                ];
+                
+                const message = sleepMessages[Math.floor(Math.random() * sleepMessages.length)];
+                this.showMessage(message, 5000);
+            }
+        },
+        
+        wakeUp() {
+            if (this.element.classList.contains('sleeping')) {
+                this.element.classList.remove('sleeping');
+                
+                const wakeMessages = [
+                    "Ah ! Tu m'as réveillé ! 😮",
+                    "Je rêvais de toi ! 😍",
+                    "Encore 5 minutes... 😴",
+                    "Bon, on fait quoi maintenant ? 🤔",
+                    "J'étais en train de gagner ! 😤"
+                ];
+                
+                if (Math.random() < 0.5) {
+                    const message = wakeMessages[Math.floor(Math.random() * wakeMessages.length)];
+                    this.showMessage(message, 1500);
+                }
+            }
+        }
+    };
+    
+    // Initialiser la mascotte après le chargement
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            kikiBuddy.init();
+        }, 2000); // Attendre 2s pour pas surcharger
     });
 </script>
         <footer class="footer">

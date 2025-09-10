@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔮 HOROSCOPE DE KIKI - Prédictions Mystiques ! 🔮</title>
+    <link rel="stylesheet" href="styles90s.css">
+    <style>
+        .mystic-header {
+            background: 
+                radial-gradient(circle at 20% 80%, #4B0082 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, #8B008B 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, #000080 0%, transparent 50%),
+                linear-gradient(45deg, #000000, #1a0033, #000066);
+            background-size: 300% 300%;
+            animation: mystic-bg 8s ease infinite;
+            text-align: center;
+            padding: 30px;
+            border: 5px solid #FFD700;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes mystic-bg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .mystic-header::before {
+            content: '✨⭐✨⭐✨⭐✨⭐✨⭐✨⭐✨';
+            position: absolute;
+            top: 5px;
+            left: 0;
+            right: 0;
+            color: #FFD700;
+            font-size: 20px;
+            animation: stars-twinkle 3s ease-in-out infinite;
+        }
+        
+        .mystic-header::after {
+            content: '⭐✨⭐✨⭐✨⭐✨⭐✨⭐✨⭐';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            right: 0;
+            color: #FFD700;
+            font-size: 20px;
+            animation: stars-twinkle 3s ease-in-out infinite reverse;
+        }
+        
+        @keyframes stars-twinkle {
+            0%, 100% { opacity: 0.5; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+        
+        .horoscope-title {
+            font-size: 38px;
+            color: #FFD700;
+            text-shadow: 3px 3px 0px #000000, 0 0 20px #FFD700;
+            animation: title-glow 4s ease-in-out infinite;
+            margin: 20px 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        @keyframes title-glow {
+            0%, 100% { text-shadow: 3px 3px 0px #000000, 0 0 20px #FFD700; }
+            50% { text-shadow: 3px 3px 0px #000000, 0 0 40px #FFD700, 0 0 60px #FFD700; }
+        }
+        
+        .mystic-subtitle {
+            font-size: 18px;
+            color: #DDA0DD;
+            margin: 10px 0 0 0;
+            font-weight: bold;
+            text-shadow: 2px 2px 0px #000000;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000000;
+            border: 3px outset #FFFFFF;
+            padding: 12px 18px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+            box-shadow: 4px 4px 0px #000000;
+            animation: back-float 4s ease-in-out infinite;
+            z-index: 100;
+        }
+        
+        @keyframes back-float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-3px) rotate(-1deg); }
+            75% { transform: translateY(-3px) rotate(1deg); }
+        }
+        
+        .date-selector {
+            background: linear-gradient(135deg, #800080, #4B0082);
+            border: 4px ridge #FFD700;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 8px 8px 0px #000000;
+        }
+        
+        .date-input-container {
+            margin: 15px 0;
+        }
+        
+        .date-label {
+            color: #FFD700;
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0px #000000;
+        }
+        
+        .date-input {
+            background: #000000;
+            border: 3px inset #C0C0C0;
+            color: #00FF00;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-family: "Courier New", monospace;
+            font-weight: bold;
+            text-align: center;
+            margin: 0 10px;
+        }
+        
+        .generate-btn {
+            background: linear-gradient(45deg, #FF4500, #FF6347, #FFD700);
+            color: #000000;
+            border: 4px outset #FFFFFF;
+            padding: 15px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 20px 10px;
+            box-shadow: 6px 6px 0px #000000;
+            animation: btn-pulse 2s ease-in-out infinite;
+            font-family: "Comic Sans MS", serif;
+        }
+        
+        @keyframes btn-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); box-shadow: 6px 6px 0px #000000, 0 0 15px #FFD700; }
+        }
+        
+        .generate-btn:hover {
+            background: linear-gradient(45deg, #00FFFF, #00FF00, #FFFF00);
+            border: 4px inset #FFFFFF;
+            animation: btn-shake 0.3s linear infinite;
+        }
+        
+        @keyframes btn-shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-2px); }
+            75% { transform: translateX(2px); }
+        }
+        
+        .prediction-card {
+            background: 
+                linear-gradient(135deg, #4B0082, #8B008B, #663399),
+                radial-gradient(circle at center, rgba(255,215,0,0.1) 0%, transparent 70%);
+            border: 5px ridge #FFD700;
+            margin: 25px 0;
+            padding: 0;
+            box-shadow: 10px 10px 0px #000000;
+            animation: card-mystical 6s ease-in-out infinite alternate;
+            display: none;
+        }
+        
+        @keyframes card-mystical {
+            from { 
+                box-shadow: 10px 10px 0px #000000, 0 0 20px #4B0082; 
+                transform: scale(1);
+            }
+            to { 
+                box-shadow: 10px 10px 0px #000000, 0 0 40px #8B008B, 0 0 60px #8B008B; 
+                transform: scale(1.02);
+            }
+        }
+        
+        .prediction-header {
+            background: linear-gradient(90deg, #FFD700, #FFA500, #FF4500);
+            padding: 20px;
+            border-bottom: 4px solid #FFFFFF;
+            text-align: center;
+        }
+        
+        .prediction-title {
+            color: #000000;
+            font-size: 24px;
+            margin: 0;
+            text-shadow: 1px 1px 0px #FFFFFF;
+            font-weight: bold;
+            animation: title-shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes title-shimmer {
+            0%, 100% { color: #000000; }
+            50% { color: #8B0000; }
+        }
+        
+        .prediction-date {
+            color: #8B0000;
+            font-size: 14px;
+            margin: 5px 0 0 0;
+            font-weight: bold;
+        }
+        
+        .prediction-content {
+            padding: 25px;
+            color: #FFFFFF;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+        
+        .prediction-section {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(0,0,0,0.3);
+            border: 2px solid #FFD700;
+            border-radius: 0;
+        }
+        
+        .section-title {
+            color: #FFD700;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            text-shadow: 2px 2px 0px #000000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .prediction-text {
+            color: #DDA0DD;
+            font-style: italic;
+            margin: 8px 0;
+        }
+        
+        .lucky-numbers {
+            background: #000000;
+            border: 3px inset #C0C0C0;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: center;
+        }
+        
+        .lucky-number {
+            display: inline-block;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000000;
+            padding: 8px 12px;
+            margin: 3px;
+            font-weight: bold;
+            font-size: 16px;
+            border: 2px outset #FFFFFF;
+            animation: number-dance 2s ease-in-out infinite;
+        }
+        
+        @keyframes number-dance {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.1) rotate(-2deg); }
+            75% { transform: scale(1.1) rotate(2deg); }
+        }
+        
+        .crystal-ball {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 100px;
+            height: 100px;
+            background: 
+                radial-gradient(circle at 30% 30%, #FFFFFF, transparent 40%),
+                radial-gradient(circle, #DDA0DD, #8B008B);
+            border: 5px solid #FFD700;
+            border-radius: 50%;
+            animation: crystal-float 4s ease-in-out infinite;
+            cursor: pointer;
+            z-index: 80;
+            box-shadow: 
+                0 0 20px #8B008B,
+                inset -20px -20px 40px rgba(0,0,0,0.3);
+        }
+        
+        @keyframes crystal-float {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg);
+                box-shadow: 0 0 20px #8B008B, inset -20px -20px 40px rgba(0,0,0,0.3);
+            }
+            25% { 
+                transform: translateY(-8px) rotate(-1deg);
+                box-shadow: 0 0 30px #FF00FF, inset -20px -20px 40px rgba(0,0,0,0.3);
+            }
+            75% { 
+                transform: translateY(-8px) rotate(1deg);
+                box-shadow: 0 0 30px #FF00FF, inset -20px -20px 40px rgba(0,0,0,0.3);
+            }
+        }
+        
+        .mystic-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            color: #FFD700;
+            font-size: 20px;
+            animation: particle-float 8s linear infinite;
+            opacity: 0.7;
+        }
+        
+        @keyframes particle-float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10%, 90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .mood-indicator {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #000000;
+            color: #00FF00;
+            border: 2px solid #00FF00;
+            font-family: "Courier New", monospace;
+            font-size: 12px;
+            margin: 10px 0;
+            animation: mood-flicker 3s linear infinite;
+        }
+        
+        @keyframes mood-flicker {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.5; }
+        }
+        
+        .warning-banner {
+            background: linear-gradient(45deg, #FF0000, #FF4500);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 10px;
+            margin: 20px 0;
+            border: 3px solid #FFFFFF;
+            font-weight: bold;
+            animation: warning-blink 2s ease-in-out infinite;
+        }
+        
+        @keyframes warning-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body>
+    <div class="mystic-particles" id="particles"></div>
+    
+    <marquee behavior="scroll" direction="left" scrollamount="4">
+        🔮 DÉCOUVRE TON AVENIR AVEC KIKI ! 🔮 PRÉDICTIONS MYSTIQUES GARANTIES VÉRIDIQUES* 🔮 (*véracité non garantie) 🔮
+    </marquee>
+    
+    <a href="index.html" class="back-button">🏠 RETOUR</a>
+    
+    <div class="crystal-ball" title="Boule de cristal magique de Kiki" onclick="generateRandomPrediction()"></div>
+    
+    <div class="container">
+        <div class="mystic-header">
+            <h1 class="horoscope-title">🔮 HOROSCOPE DE KIKI 🔮</h1>
+            <p class="mystic-subtitle">Prédictions mystiques par le maître voyant de Bondy</p>
+        </div>
+        
+        <div class="date-selector">
+            <div class="date-input-container">
+                <label class="date-label">🌟 ENTRE TA DATE DE NAISSANCE 🌟</label>
+                <input type="date" class="date-input" id="birth-date" max="2025-12-31">
+            </div>
+            <button class="generate-btn" onclick="generateHoroscope()">✨ RÉVÈLE MON DESTIN ! ✨</button>
+            <button class="generate-btn" onclick="generateDailyHoroscope()">🌅 HOROSCOPE DU JOUR</button>
+        </div>
+        
+        <div class="warning-banner">
+            ⚠️ ATTENTION : Les prédictions de Kiki sont aussi fiables que ses tentatives de devenir prof ! ⚠️
+        </div>
+        
+        <div class="prediction-card" id="prediction-result">
+            <div class="prediction-header">
+                <h2 class="prediction-title" id="prediction-title">🔮 TES PRÉDICTIONS MYSTIQUES 🔮</h2>
+                <p class="prediction-date" id="prediction-date"></p>
+            </div>
+            <div class="prediction-content">
+                <div class="mood-indicator">STATUS: <span id="mystic-mood">CONNECTÉ AUX ESPRITS</span></div>
+                
+                <div class="prediction-section">
+                    <h3 class="section-title">💫 AMOUR & ROMANCE</h3>
+                    <p class="prediction-text" id="love-prediction"></p>
+                </div>
+                
+                <div class="prediction-section">
+                    <h3 class="section-title">💰 ARGENT & RÉUSSITE</h3>
+                    <p class="prediction-text" id="money-prediction"></p>
+                </div>
+                
+                <div class="prediction-section">
+                    <h3 class="section-title">🎯 CARRIÈRE & AMBITIONS</h3>
+                    <p class="prediction-text" id="career-prediction"></p>
+                </div>
+                
+                <div class="prediction-section">
+                    <h3 class="section-title">🍀 CHANCE & OPPORTUNITÉS</h3>
+                    <p class="prediction-text" id="luck-prediction"></p>
+                </div>
+                
+                <div class="prediction-section">
+                    <h3 class="section-title">🎲 TES NUMÉROS PORTE-BONHEUR</h3>
+                    <div class="lucky-numbers" id="lucky-numbers"></div>
+                </div>
+                
+                <div class="prediction-section">
+                    <h3 class="section-title">🌟 CONSEIL MYSTIQUE DE KIKI</h3>
+                    <p class="prediction-text" id="kiki-advice"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <marquee direction="right" scrollamount="2" style="color: #FFD700;">
+            🔮 Voyance by Kiki™ 🔮 Certifié par l'École de Magie de Bondy 🔮 Consultation PMU place Carnot 🔮
+        </marquee>
+    </footer>
+    
+    <script>
+        // Prédictions drôles pré-écrites
+        const predictions = {
+            love: [
+                "Vénus est en conjonction avec ton kebab préféré. L'amour viendra par l'estomac !",
+                "Tu rencontreras l'âme sœur au PMU entre 6h et 7h du matin. Amène des pièces de 2€.",
+                "Attention ! Ton prochain crush aura des chaussettes dépareillées comme toi. C'est le destin !",
+                "L'amour frappera à ta porte... ou plutôt au distributeur de tickets PMU.",
+                "Mars influence ton cœur : tu tomberas amoureux de quelqu'un qui manifeste aussi le 10 septembre !",
+                "Cupidon a une flèche spéciale pour toi, mais il l'a perdue au PMU de Carnot. Va la chercher !"
+            ],
+            money: [
+                "Tes finances seront comme tes résultats au loto : imprévisibles mais pleines d'espoir !",
+                "Jupiter indique que tu trouveras 50 centimes dans ton canapé cette semaine.",
+                "Attention aux dépenses : évite d'acheter 37 tickets de loto le même jour (encore).",
+                "L'argent viendra par ta passion pour les kebabs. Peut-être en tant que testeur professionnel ?",
+                "Mercure rétrograde : ton porte-monnaie sera aussi vide que tes espoirs de devenir prof.",
+                "Les astres prévoient un jackpot... mais pas forcément au loto. Cherche dans tes vieilles vestes !"
+            ],
+            career: [
+                "Ta carrière sera comme tes manifestations : bruyante mais pas très efficace !",
+                "Les étoiles voient un avenir brillant dans l'enseignement... aux pingouins de l'Antarctique.",
+                "Saturne bloque ta voie professionnelle, mais Claude du PMU pourrait t'embaucher comme consultant loto.",
+                "Nouveau métier en vue : influenceur kebab ou blogueur PMU. Les deux sont possibles !",
+                "Ta vocation cachée : devenir le premier prof manifestant de France. Fonce !",
+                "Les planètes s'alignent pour faire de toi le roi des échecs professionnels stylés."
+            ],
+            luck: [
+                "Ta chance sera proportionnelle à ton style vestimentaire : absolument imprévisible !",
+                "Porte des chaussettes encore plus dépareillées pour multiplier ta chance par 1000 !",
+                "Évite les miroirs cette semaine, ton style pourrait les faire exploser de jalousie.",
+                "La chance sourit aux audacieux : manifeste encore plus fort le 10 septembre !",
+                "Uranus apporte du changement : tu pourrais enfin gagner quelque chose... au PMU !",
+                "Ta chance se cache dans ton kebab du jeudi. Ouvre bien les yeux en mangeant !"
+            ],
+            advice: [
+                "Souviens-toi : même les pingouins portent des smokings, alors assume tes chaussettes dépareillées !",
+                "Kiki dit : 'La vie est comme un kebab, c'est meilleur quand c'est bien garni de rêves brisés !'",
+                "N'oublie jamais : tu es unique, comme une licorne au PMU de Carnot !",
+                "Le secret du bonheur selon Kiki : un café à 6h du matin et l'espoir d'un jackpot.",
+                "Reste fidèle à tes valeurs : originalité, persévérance et amour des tables de multiplication de 7 !",
+                "Médite sur cette vérité : 'Il vaut mieux rater avec style que réussir sans panache !'"
+            ]
+        };
+        
+        const zodiacSigns = [
+            {name: "Kiki Ascendant PMU", dates: [3, 21, 4, 19], element: "Espoir"},
+            {name: "Taureau Manifestant", dates: [4, 20, 5, 20], element: "Détermination"},
+            {name: "Gémeaux du Loto", dates: [5, 21, 6, 20], element: "Chance"},
+            {name: "Kebab Nostalgique", dates: [6, 21, 7, 22], element: "Gourmandise"},
+            {name: "Lion des Barricades", dates: [7, 23, 8, 22], element: "Révolution"},
+            {name: "Prof Ratée", dates: [8, 23, 9, 22], element: "Sagesse"},
+            {name: "Balance de Bondy", dates: [9, 23, 10, 22], element: "Justice"},
+            {name: "Scorpion du 10 Septembre", dates: [10, 23, 11, 21], element: "Passion"},
+            {name: "Sagittaire Sans Style", dates: [11, 22, 12, 21], element: "Liberté"},
+            {name: "Capricorne des Chaussettes", dates: [12, 22, 1, 19], element: "Originalité"},
+            {name: "Verseur de PMU", dates: [1, 20, 2, 18], element: "Innovation"},
+            {name: "Poisson Pingouin", dates: [2, 19, 3, 20], element: "Rêve"}
+        ];
+        
+        function getZodiacSign(date) {
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            
+            for (let sign of zodiacSigns) {
+                const [startMonth, startDay, endMonth, endDay] = sign.dates;
+                if ((month === startMonth && day >= startDay) || 
+                    (month === endMonth && day <= endDay)) {
+                    return sign;
+                }
+            }
+            return zodiacSigns[0]; // Kiki par défaut
+        }
+        
+        function generateLuckyNumbers() {
+            const numbers = [];
+            for (let i = 0; i < 6; i++) {
+                let num;
+                do {
+                    num = Math.floor(Math.random() * 49) + 1;
+                } while (numbers.includes(num));
+                numbers.push(num);
+            }
+            return numbers.sort((a, b) => a - b);
+        }
+        
+        function generateHoroscope() {
+            const birthDate = document.getElementById('birth-date').value;
+            if (!birthDate) {
+                alert('🔮 Entre ta date de naissance, voyons ! Comment veux-tu que Kiki lise ton avenir sans ça ?');
+                return;
+            }
+            
+            const date = new Date(birthDate);
+            const sign = getZodiacSign(date);
+            const today = new Date().toLocaleDateString('fr-FR');
+            
+            // Mise à jour du titre et de la date
+            document.getElementById('prediction-title').innerHTML = `🔮 TON SIGNE : ${sign.name.toUpperCase()} 🔮`;
+            document.getElementById('prediction-date').innerHTML = `Prédiction générée le ${today} | Élément : ${sign.element}`;
+            
+            // Génération des prédictions aléatoirement
+            document.getElementById('love-prediction').innerHTML = getRandomPrediction('love');
+            document.getElementById('money-prediction').innerHTML = getRandomPrediction('money');
+            document.getElementById('career-prediction').innerHTML = getRandomPrediction('career');
+            document.getElementById('luck-prediction').innerHTML = getRandomPrediction('luck');
+            document.getElementById('kiki-advice').innerHTML = getRandomPrediction('advice');
+            
+            // Génération des numéros porte-bonheur
+            const luckyNumbers = generateLuckyNumbers();
+            const numbersHTML = luckyNumbers.map(num => 
+                `<span class="lucky-number">${num}</span>`
+            ).join('');
+            document.getElementById('lucky-numbers').innerHTML = numbersHTML;
+            
+            // Affichage de la carte
+            document.getElementById('prediction-result').style.display = 'block';
+            
+            // Changement du mood
+            const moods = ['CONNECTÉ AUX ESPRITS', 'VISION MYSTIQUE ACTIVE', 'CANAL OUVERT', 'ÉNERGIE COSMIQUE', 'TRANSE KIKI'];
+            document.getElementById('mystic-mood').innerHTML = moods[Math.floor(Math.random() * moods.length)];
+            
+            // Scroll vers les résultats
+            document.getElementById('prediction-result').scrollIntoView({behavior: 'smooth'});
+        }
+        
+        function generateDailyHoroscope() {
+            const today = new Date().toLocaleDateString('fr-FR');
+            
+            document.getElementById('prediction-title').innerHTML = '🌅 HOROSCOPE DU JOUR 🌅';
+            document.getElementById('prediction-date').innerHTML = `Prédictions pour le ${today} | Par Maître Kiki`;
+            
+            document.getElementById('love-prediction').innerHTML = getRandomPrediction('love');
+            document.getElementById('money-prediction').innerHTML = getRandomPrediction('money');
+            document.getElementById('career-prediction').innerHTML = getRandomPrediction('career');
+            document.getElementById('luck-prediction').innerHTML = getRandomPrediction('luck');
+            document.getElementById('kiki-advice').innerHTML = getRandomPrediction('advice');
+            
+            const luckyNumbers = generateLuckyNumbers();
+            const numbersHTML = luckyNumbers.map(num => 
+                `<span class="lucky-number">${num}</span>`
+            ).join('');
+            document.getElementById('lucky-numbers').innerHTML = numbersHTML;
+            
+            document.getElementById('prediction-result').style.display = 'block';
+            document.getElementById('mystic-mood').innerHTML = 'VISION QUOTIDIENNE';
+            
+            document.getElementById('prediction-result').scrollIntoView({behavior: 'smooth'});
+        }
+        
+        function generateRandomPrediction() {
+            alert('🔮 La boule de cristal de Kiki murmure : "Utilise les boutons en haut pour une vraie consultation !" 🔮');
+        }
+        
+        function getRandomPrediction(category) {
+            const predictionArray = predictions[category];
+            return predictionArray[Math.floor(Math.random() * predictionArray.length)];
+        }
+        
+        // Animation des particules mystiques
+        function createParticle() {
+            const particles = ['✨', '⭐', '🌟', '💫', '🔮', '🌙'];
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.innerHTML = particles[Math.floor(Math.random() * particles.length)];
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = (Math.random() * 3 + 5) + 's';
+            particle.style.animationDelay = Math.random() * 2 + 's';
+            
+            document.getElementById('particles').appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 8000);
+        }
+        
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Créer des particules régulièrement
+            setInterval(createParticle, 800);
+            
+            // Date par défaut (aujourd'hui moins 25 ans)
+            const defaultDate = new Date();
+            defaultDate.setFullYear(defaultDate.getFullYear() - 25);
+            document.getElementById('birth-date').value = defaultDate.toISOString().split('T')[0];
+        });
+    </script>
+</body>
+</html>

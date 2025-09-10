@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧠 QUIZ DE KIKI - Teste tes connaissances ! 🧠</title>
+    <link rel="stylesheet" href="styles90s.css">
+    <style>
+        .quiz-header {
+            background: linear-gradient(45deg, #FF0000, #00FF00, #0000FF, #FFFF00);
+            background-size: 400% 400%;
+            animation: quiz-rainbow 4s ease infinite;
+            text-align: center;
+            padding: 25px;
+            border: 5px solid #FFFFFF;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes quiz-rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .quiz-title {
+            font-size: 42px;
+            color: #FFFFFF;
+            text-shadow: 4px 4px 0px #000000;
+            animation: title-shake 3s ease-in-out infinite;
+            margin: 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        @keyframes title-shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+            20%, 40%, 60%, 80% { transform: translateX(2px); }
+        }
+        
+        .quiz-subtitle {
+            font-size: 18px;
+            color: #FFFF00;
+            margin: 15px 0 0 0;
+            font-weight: bold;
+            text-shadow: 2px 2px 0px #000000;
+            animation: subtitle-pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes subtitle-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(45deg, #FFFF00, #FF8000);
+            color: #000000;
+            border: 3px outset #FFFFFF;
+            padding: 12px 18px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+            box-shadow: 4px 4px 0px #000000;
+            animation: back-wobble 3s ease-in-out infinite;
+            z-index: 100;
+        }
+        
+        @keyframes back-wobble {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-2deg); }
+            75% { transform: rotate(2deg); }
+        }
+        
+        .quiz-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .question-card {
+            background: linear-gradient(135deg, #800080, #008080, #800040);
+            border: 5px ridge #C0C0C0;
+            margin: 25px 0;
+            padding: 0;
+            box-shadow: 10px 10px 0px #000000;
+            animation: card-glow 5s ease-in-out infinite alternate;
+            border-radius: 0;
+        }
+        
+        @keyframes card-glow {
+            from { box-shadow: 10px 10px 0px #000000, 0 0 15px #800080; }
+            to { box-shadow: 10px 10px 0px #000000, 0 0 30px #FF00FF, 0 0 45px #FF00FF; }
+        }
+        
+        .question-header {
+            background: linear-gradient(90deg, #FF0000, #FF8000, #FFFF00);
+            padding: 20px;
+            border-bottom: 4px solid #FFFFFF;
+        }
+        
+        .question-number {
+            color: #FFFFFF;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            text-shadow: 2px 2px 0px #000000;
+        }
+        
+        .question-text {
+            color: #000000;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0;
+            text-shadow: 1px 1px 0px #FFFFFF;
+        }
+        
+        .answers-container {
+            padding: 25px;
+        }
+        
+        .answer-option {
+            background: linear-gradient(45deg, #000080, #000040);
+            border: 3px outset #C0C0C0;
+            color: #FFFFFF;
+            padding: 15px 20px;
+            margin: 12px 0;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .answer-option:hover {
+            background: linear-gradient(45deg, #FF00FF, #8000FF);
+            border: 3px inset #C0C0C0;
+            transform: scale(1.02);
+            animation: answer-party 0.5s linear infinite;
+        }
+        
+        @keyframes answer-party {
+            0% { box-shadow: 0 0 5px #FF00FF; }
+            50% { box-shadow: 0 0 15px #FF00FF, 0 0 25px #FF00FF; }
+            100% { box-shadow: 0 0 5px #FF00FF; }
+        }
+        
+        .answer-option.correct {
+            background: linear-gradient(45deg, #00FF00, #008000);
+            animation: correct-flash 1s ease-in-out 3;
+            border: 3px solid #FFFFFF;
+        }
+        
+        .answer-option.incorrect {
+            background: linear-gradient(45deg, #FF0000, #800000);
+            animation: incorrect-shake 0.5s ease-in-out 3;
+            border: 3px solid #FFFFFF;
+        }
+        
+        @keyframes correct-flash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        @keyframes incorrect-shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        .score-display {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #000000, #800000);
+            color: #00FF00;
+            border: 4px ridge #C0C0C0;
+            padding: 15px 20px;
+            font-family: "Courier New", monospace;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 6px 6px 0px #000000;
+            animation: score-pulse 2s ease-in-out infinite;
+            z-index: 90;
+        }
+        
+        @keyframes score-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .final-result {
+            background: linear-gradient(45deg, #FF0000, #FF8000, #FFFF00, #00FF00);
+            background-size: 400% 400%;
+            animation: result-rainbow 2s ease infinite;
+            border: 6px ridge #FFFFFF;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 12px 12px 0px #000000;
+            display: none;
+        }
+        
+        @keyframes result-rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .result-title {
+            font-size: 36px;
+            color: #000000;
+            font-weight: bold;
+            text-shadow: 2px 2px 0px #FFFFFF;
+            margin: 0 0 20px 0;
+            animation: result-bounce 1s ease-in-out infinite;
+        }
+        
+        @keyframes result-bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .result-message {
+            font-size: 20px;
+            color: #000000;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        
+        .restart-btn {
+            background: linear-gradient(45deg, #00FFFF, #0080FF);
+            color: #000000;
+            border: 4px outset #FFFFFF;
+            padding: 15px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 20px 10px;
+            box-shadow: 5px 5px 0px #000000;
+            animation: btn-dance 2s ease-in-out infinite;
+        }
+        
+        @keyframes btn-dance {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(-2deg) scale(1.05); }
+            75% { transform: rotate(2deg) scale(1.05); }
+        }
+        
+        .restart-btn:hover {
+            background: linear-gradient(45deg, #FF00FF, #FF0080);
+            border: 4px inset #FFFFFF;
+            transform: scale(1.1);
+        }
+        
+        .kiki-mascot {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 80px;
+            height: 80px;
+            background: url('src/kiki.jpg') center/cover;
+            border: 4px solid #FFFF00;
+            animation: mascot-bounce 3s ease-in-out infinite;
+            z-index: 80;
+        }
+        
+        @keyframes mascot-bounce {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(-5deg); }
+            50% { transform: translateY(-5px) rotate(0deg); }
+            75% { transform: translateY(-10px) rotate(5deg); }
+        }
+        
+        .progress-bar {
+            background: #000000;
+            border: 3px solid #FFFFFF;
+            height: 25px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #00FF00, #FFFF00, #FF0000);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+            animation: progress-glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes progress-glow {
+            from { box-shadow: inset 0 0 10px rgba(255,255,255,0.3); }
+            to { box-shadow: inset 0 0 20px rgba(255,255,255,0.7); }
+        }
+    </style>
+</head>
+<body>
+    <marquee behavior="scroll" direction="left" scrollamount="5">
+        🧠 TESTEZ VOS CONNAISSANCES SUR KIKI ! 🧠 LE QUIZ LE PLUS DIFFICILE DU WEB ! 🧠 SAUREZ-VOUS TOUT SUR NOTRE HÉROS ? 🧠
+    </marquee>
+    
+    <a href="index.html" class="back-button">🏠 RETOUR</a>
+    
+    <div class="score-display">
+        SCORE: <span id="current-score">0</span>/10
+        <br>
+        <small>Question: <span id="current-question">1</span></small>
+    </div>
+    
+    <div class="kiki-mascot" title="Kiki te surveille !"></div>
+    
+    <div class="container">
+        <div class="quiz-header">
+            <h1 class="quiz-title">🧠 LE QUIZ DE KIKI 🧠</h1>
+            <p class="quiz-subtitle">Prouve que tu connais TOUT sur le legend de Bondy !</p>
+        </div>
+        
+        <div class="quiz-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-bar"></div>
+            </div>
+            
+            <div id="quiz-questions">
+                <!-- Question 1 -->
+                <div class="question-card" data-question="1">
+                    <div class="question-header">
+                        <p class="question-number">QUESTION 1/10</p>
+                        <p class="question-text">À quelle heure Kiki arrive-t-il généralement au PMU place Carnot ?</p>
+                    </div>
+                    <div class="answers-container">
+                        <div class="answer-option" data-correct="true">🕕 6h du matin (l'heure des champions)</div>
+                        <div class="answer-option">🕘 9h (comme tout le monde)</div>
+                        <div class="answer-option">🕛 12h (pour l'apéro)</div>
+                        <div class="answer-option">🕐 14h (après la sieste)</div>
+                    </div>
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="question-card" data-question="2" style="display: none;">
+                    <div class="question-header">
+                        <p class="question-number">QUESTION 2/10</p>
+                        <p class="question-text">Quelle est la stratégie secrète de Kiki pour le loto ?</p>
+                    </div>
+                    <div class="answers-container">
+                        <div class="answer-option">🔮 Il demande à sa boule de cristal</div>
+                        <div class="answer-option" data-correct="true">📚 Les tables de multiplication de 7</div>
+                        <div class="answer-option">🐱 Il suit les conseils de son chat</div>
+                        <div class="answer-option">🎲 Il lance des dés magiques</div>
+                    </div>
+                </div>
+                
+                <!-- Question 3 -->
+                <div class="question-card" data-question="3" style="display: none;">
+                    <div class="question-header">
+                        <p class="question-number">QUESTION 3/10</p>
+                        <p class="question-text">Quel était le rêve de Kiki avant de devenir manifestant professionnel ?</p>
+                    </div>
+                    <div class="answers-container">
+                        <div class="answer-option">🎸 Rockstar international</div>
+                        <div class="answer-option" data-correct="true">👨‍🏫 Professeur respecté</div>
+                        <div class="answer-option">🍕 Chef cuisinier</div>
+                        <div class="answer-option">🦸 Super-héros masqué</div>
+                    </div>
+                </div>
+                
+                <!-- Question 4 -->
+                <div class="question-card" data-question="4" style="display: none;">
+                    <div class="question-header">
+                        <p class="question-number">QUESTION 4/10</p>
+                        <p class="question-text">Que dit Kiki sur sa pancarte de manifestation ?</p>
+                    </div>
+                    <div class="answers-container">
+                        <div class="answer-option">💪 "KIKI POWER FOREVER !"</div>
+                        <div class="answer-option" data-correct="true">✊ "MÊME SANS STYLE, J'AI LE DROIT DE RÊVER !"</div>
+                        <div class="answer-option">🌟 "BONDY C'EST MAGIQUE !"</div>
+                        <div class="answer-option">🔥 "RÉVOLUTION DES RATÉS !"</div>
+                    </div>
+                </div>
+                
+                <!-- Question 5 -->
+                <div class="question-card" data-question="5" style="display: none;">
+                    <div class="question-header">
+                        <p class="question-number">QUESTION 5/10</p>
+                        <p class="question-text">Comment s'appelle le patron du PMU où traîne Kiki ?</p>
+                    </div>
+                    <div class="answers-container">
+                        <div class="answer-option">🍺 Bernard le Roi de la Bière</div>
+                        <div class="answer-option" data-correct="true">👑 Claude (surnommé Claudator 3000)</div>
+                        <div class="answer-option">🎯 Michel le Fléchette</div>
+                        <div class="answer-option">🏆 Patrick le Champion</div>
+                    </div>
+                </div>
+                
+                <!-- Question 6 -->
+                <div class="question-card" data-question="6" style="display: none;">
+                    <div class="question-header">
+                        <p class="question-number">QUESTION 6/10</p>
+                        <p class="question-text">Dans son rêve bizarre, Kiki enseignait à quels animaux ?</p>
+                    </div>
+                    <div class="answers-container">
+                        <div class="answer-option">🦁 Des lions savants</div>
+                        <div class="answer-option">🐘 Des éléphants mathématiciens</div>
+                        <div class="answer-option" data-correct="true">🐧 Des pingouins à lunettes</div>
+                        <div class="answer-option">🦜 Des perroquets multilingues</div>
+                    </div>
+                </div>
+                
+                <!-- Question 7 -->
+                <div class="question-card" data-question="7" style="display: none;">
+                    <div class="question-header">
+                        <p class="question-number">QUESTION 7/10</p>
+                        <p class="question-text">Quel est le nom Instagram de Kiki pour son projet d'influenceur kebab ?</p>
+                    </div>
+                    <div class="answers-container">
+                        <div class="answer-option">📸 @KikiFoodMaster</div>
+                        <div class="answer-option" data-correct="true">🥙 @KikiBondyKebab</div>
+                        <div class="answer-option">🌟 @InfluenceurKiki93</div>
+                        <div class="answer-option">🔥 @KebabKingKiki</div>
+                    </div>
+                </div>
+                
+                <!-- Question 8 -->
+                <div class="question-card" data-question="8" style="display: none;">
+                    <div class="question-header">
+                        <p class="question-number">QUESTION 8/10</p>
+                        <p class="question-text">Combien de likes a eu le premier post Instagram de Kiki ?</p>
+                    </div>
+                    <div class="answers-container">
+                        <div class="answer-option">💯 100 likes (succès viral)</div>
+                        <div class="answer-option">🔟 10 likes (début prometteur)</div>
+                        <div class="answer-option" data-correct="true">✌️ 2 likes (sa mère + Claude du PMU)</div>
+                        <div class="answer-option">😭 0 like (échec total)</div>
+                    </div>
+                </div>
+                
+                <!-- Question 9 -->
+                <div class="question-card" data-question="9" style="display: none;">
+                    <div class="question-header">
+                        <p class="question-number">QUESTION 9/10</p>
+                        <p class="question-text">Quelle est la particularité vestimentaire de Kiki mentionnée dans ses conseils pour rater sa vie ?</p>
+                    </div>
+                    <div class="answers-container">
+                        <div class="answer-option">👔 Il porte toujours une cravate de travers</div>
+                        <div class="answer-option" data-correct="true">🧦 Il porte des chaussettes dépareillées</div>
+                        <div class="answer-option">👕 Ses chemises sont toujours à l'envers</div>
+                        <div class="answer-option">🎩 Il ne quitte jamais son chapeau</div>
+                    </div>
+                </div>
+                
+                <!-- Question 10 -->
+                <div class="question-card" data-question="10" style="display: none;">
+                    <div class="question-header">
+                        <p class="question-number">QUESTION 10/10</p>
+                        <p class="question-text">Comment s'appelait l'élève modèle pingouin dans le rêve de Kiki ?</p>
+                    </div>
+                    <div class="answers-container">
+                        <div class="answer-option">🥋 Bruce Lee du Pôle</div>
+                        <div class="answer-option" data-correct="true">🥊 Jean-Claude Van Pingouin</div>
+                        <div class="answer-option">⭐ Einstein l'Antarctique</div>
+                        <div class="answer-option">🎓 Professeur Glace-Glace</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="final-result" id="final-result">
+                <div class="result-title" id="result-title">🎉 RÉSULTAT FINAL ! 🎉</div>
+                <div class="result-message" id="result-message"></div>
+                <div class="result-message" id="result-details"></div>
+                <button class="restart-btn" onclick="restartQuiz()">🔄 REFAIRE LE QUIZ</button>
+                <a href="blog-kiki.html" class="restart-btn">📝 LIRE LE BLOG</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <marquee direction="right" scrollamount="3" style="color: #00FFFF;">
+            🧠 Quiz créé par Kiki himself 🧠 Niveau de difficulté: EXPERT 🧠 Seuls les vrais fans réussissent ! 🧠
+        </marquee>
+    </footer>
+    
+    <script>
+        let currentQuestion = 1;
+        let score = 0;
+        let totalQuestions = 10;
+        
+        function updateScore() {
+            document.getElementById('current-score').textContent = score;
+            document.getElementById('current-question').textContent = currentQuestion;
+            
+            // Mise à jour de la barre de progression
+            const progressPercent = ((currentQuestion - 1) / totalQuestions) * 100;
+            document.getElementById('progress-bar').style.width = progressPercent + '%';
+        }
+        
+        function nextQuestion() {
+            // Cacher la question actuelle
+            document.querySelector(`[data-question="${currentQuestion}"]`).style.display = 'none';
+            
+            currentQuestion++;
+            
+            if (currentQuestion <= totalQuestions) {
+                // Afficher la prochaine question
+                document.querySelector(`[data-question="${currentQuestion}"]`).style.display = 'block';
+                updateScore();
+            } else {
+                // Afficher les résultats finaux
+                showFinalResult();
+            }
+        }
+        
+        function showFinalResult() {
+            document.getElementById('progress-bar').style.width = '100%';
+            
+            const resultDiv = document.getElementById('final-result');
+            const resultTitle = document.getElementById('result-title');
+            const resultMessage = document.getElementById('result-message');
+            const resultDetails = document.getElementById('result-details');
+            
+            let title, message, details;
+            
+            if (score === 10) {
+                title = '🏆 KIKI MASTER SUPRÊME ! 🏆';
+                message = 'INCROYABLE ! Tu connais TOUT sur Kiki !';
+                details = 'Tu es officiellement un expert en Kikologie ! Félicitations, tu mériterais presque ta place au PMU de Carnot ! 🍻';
+            } else if (score >= 8) {
+                title = '🌟 VRAI FAN DE KIKI ! 🌟';
+                message = 'Excellent ! Tu es un véritable connaisseur !';
+                details = `${score}/10 ! Tu comprends l\'esprit de Kiki. Claude du PMU serait fier de toi ! 👑`;
+            } else if (score >= 6) {
+                title = '👍 BON ÉLÈVE ! 👍';
+                message = 'Pas mal ! Tu connais les bases !';
+                details = `${score}/10. Tu as saisi l\'essentiel sur notre héros de Bondy, mais il te reste encore des choses à apprendre ! 📚`;
+            } else if (score >= 4) {
+                title = '🤔 PEUT MIEUX FAIRE ! 🤔';
+                message = 'Tu connais un peu Kiki, mais pas assez !';
+                details = `${score}/10. Va lire le blog pour mieux connaître les aventures de Kiki ! 📝`;
+            } else {
+                title = '😅 AMATEUR CONFIRMÉ ! 😅';
+                message = 'Tu découvres Kiki ! C\'est un début !';
+                details = `${score}/10. Pas de panique ! Même Kiki a commencé quelque part. Retourne sur le site pour apprendre ! 🚀`;
+            }
+            
+            resultTitle.innerHTML = title;
+            resultMessage.innerHTML = message;
+            resultDetails.innerHTML = details;
+            
+            resultDiv.style.display = 'block';
+            
+            // Faire disparaître le score display
+            document.querySelector('.score-display').style.display = 'none';
+        }
+        
+        function restartQuiz() {
+            currentQuestion = 1;
+            score = 0;
+            
+            // Réinitialiser l'affichage
+            document.getElementById('final-result').style.display = 'none';
+            document.querySelector('.score-display').style.display = 'block';
+            
+            // Réinitialiser toutes les questions
+            document.querySelectorAll('.question-card').forEach((card, index) => {
+                card.style.display = index === 0 ? 'block' : 'none';
+                
+                // Réinitialiser les réponses
+                card.querySelectorAll('.answer-option').forEach(option => {
+                    option.classList.remove('correct', 'incorrect');
+                    option.onclick = handleAnswerClick;
+                });
+            });
+            
+            updateScore();
+        }
+        
+        function handleAnswerClick(e) {
+            const clickedAnswer = e.target;
+            const currentCard = clickedAnswer.closest('.question-card');
+            const allAnswers = currentCard.querySelectorAll('.answer-option');
+            
+            // Désactiver tous les clics
+            allAnswers.forEach(answer => {
+                answer.onclick = null;
+            });
+            
+            // Vérifier si c'est la bonne réponse
+            const isCorrect = clickedAnswer.dataset.correct === 'true';
+            
+            if (isCorrect) {
+                score++;
+                clickedAnswer.classList.add('correct');
+            } else {
+                clickedAnswer.classList.add('incorrect');
+                // Montrer la bonne réponse
+                allAnswers.forEach(answer => {
+                    if (answer.dataset.correct === 'true') {
+                        answer.classList.add('correct');
+                    }
+                });
+            }
+            
+            // Passer à la question suivante après 2 secondes
+            setTimeout(nextQuestion, 2000);
+        }
+        
+        // Initialiser le quiz
+        document.addEventListener('DOMContentLoaded', function() {
+            updateScore();
+            
+            // Ajouter les event listeners à toutes les réponses
+            document.querySelectorAll('.answer-option').forEach(option => {
+                option.onclick = handleAnswerClick;
+            });
+        });
+    </script>
+</body>
+</html>

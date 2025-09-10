@@ -12,6 +12,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: auto;
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8Pj/8PD4//D4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA='), auto;
 }
 
 marquee {
@@ -22,6 +23,66 @@ marquee {
     padding: 10px;
     border: 3px solid #FFFFFF;
     animation: rainbow-border 2s linear infinite;
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////8AAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAAA='), pointer;
+}
+
+/* Curseurs Windows 98 pour différents éléments */
+/* Liens avec curseur de main pointante */
+a, .kiki-menu a, .kiki-menu button {
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////8AAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAAA='), pointer;
+    cursor: pointer;
+}
+
+/* Zones de texte avec curseur de texte */
+input[type="text"], textarea, .text-input {
+    cursor: url('data:image/cur;base64,AAACAAEAEAAAAAAAAAAwCAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8='), text;
+    cursor: text;
+}
+
+/* Éléments interactifs avec curseur de main */
+button, .clickable, .popup-btn, .retour-btn, .award-badge, .kiki-btn, .kiki-who-btn, .kiki-blog-btn, .kiki-quiz-btn, .kiki-horoscope-btn, .kiki-games-btn, .kiki-exploits-btn, .kiki-partenaires-btn {
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////8AAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAAA='), pointer;
+    cursor: pointer;
+}
+
+/* Zone de redimensionnement */
+.popup-90s, .kebab-menu, .mascot-speech-bubble {
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P8='), move;
+    cursor: move;
+}
+
+/* Curseur d'attente pour les éléments de chargement */
+.loading, #visitor-count {
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////Dw+P/w8Pj/8PD4//Dw+P8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P8='), wait;
+    cursor: wait;
+}
+
+/* Curseur interdit pour éléments désactivés */
+.disabled, [disabled] {
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAA/wAAAP8='), not-allowed;
+    cursor: not-allowed;
+}
+
+/* Curseurs spéciaux pour les jeux */
+.snake-game-area, #snakeCanvas {
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////Dw+P8AAAD/AAAA/wAAAP/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/AAAA/wAAAP/w8Pj/8PD4//Dw+P8='), crosshair;
+    cursor: crosshair;
+}
+
+.memory-card, .clicker-area {
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////8AAAD/AAAA/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/AAAA/wAAAP//////='), grab;
+    cursor: grab;
+}
+
+.memory-card:active, .clicker-area:active {
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////8AAAD/AAAA/8PD4//Dw+P/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/w8Pj/8PD4//AAAA/wAAAP//////='), grabbing;
+    cursor: grabbing;
+}
+
+/* Curseur spécial pour la zone de la mascotte */
+.kiki-mascot-follower {
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////8AAAD//////wAAAP//////AAAA//////8AAAD//////wAAAP//////AAAA//////8AAAD//////wAAAP//////AAAA//////8AAAD//////wAAAP//////AAAA//////8AAAD//////wAAAP//////AAAA//////8AAAD/////='), none;
+    cursor: none;
 }
 
 @keyframes rainbow-border {
@@ -200,7 +261,7 @@ h1 {
     100% { color: #FF0000; }
 }
 
-.kiki-btn, .kiki-who-btn {
+.kiki-btn, .kiki-who-btn, .kiki-blog-btn, .kiki-quiz-btn, .kiki-horoscope-btn, .kiki-games-btn, .kiki-exploits-btn, .kiki-partenaires-btn {
     width: 100%;
     background: linear-gradient(45deg, #FFFF00, #FF8000, #FF0080);
     color: #000000;
@@ -222,7 +283,7 @@ h1 {
     to { box-shadow: 3px 3px 0px #000000, 0 0 15px #FF0080, 0 0 25px #FF0080; }
 }
 
-.kiki-btn:hover, .kiki-who-btn:hover {
+.kiki-btn:hover, .kiki-who-btn:hover, .kiki-blog-btn:hover, .kiki-quiz-btn:hover, .kiki-horoscope-btn:hover, .kiki-games-btn:hover, .kiki-exploits-btn:hover, .kiki-partenaires-btn:hover {
     background: linear-gradient(45deg, #00FFFF, #00FF00, #FFFF00);
     border: 3px inset #FFFFFF;
     transform: scale(1.05);
@@ -252,18 +313,213 @@ h1 {
     position: fixed;
     bottom: 10px;
     right: 10px;
-    background: #000000;
-    color: #00FF00;
-    border: 2px solid #00FF00;
-    padding: 8px;
+    background: linear-gradient(45deg, #000080, #000040);
+    color: #FFFF00;
+    border: 3px ridge #C0C0C0;
+    padding: 12px 15px;
     font-family: "Courier New", monospace;
-    font-size: 12px;
+    font-size: 11px;
     animation: counter-glow 2s ease-in-out infinite alternate;
+    box-shadow: 5px 5px 0px #000000;
+    text-align: center;
+    min-width: 200px;
+}
+
+.counter-text {
+    display: block;
+    color: #00FFFF;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.counter-display {
+    background: #000000;
+    border: 2px inset #C0C0C0;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 0;
+}
+
+#visitor-count {
+    font-family: "Courier New", monospace;
+    font-size: 18px;
+    font-weight: bold;
+    color: #00FF00;
+    text-shadow: 0 0 5px #00FF00;
+    letter-spacing: 2px;
+    animation: counter-flicker 3s linear infinite;
+}
+
+@keyframes counter-flicker {
+    0%, 98% { opacity: 1; }
+    99%, 100% { opacity: 0.8; }
+}
+
+.counter-info {
+    margin-top: 8px;
+    font-size: 9px;
+    color: #C0C0C0;
+    line-height: 1.2;
+}
+
+.counter-info small {
+    color: #FFFFFF;
+}
+
+#last-visit, #daily-count {
+    color: #00FFFF;
+    font-weight: bold;
 }
 
 @keyframes counter-glow {
-    from { box-shadow: 0 0 5px #00FF00; }
-    to { box-shadow: 0 0 15px #00FF00, 0 0 25px #00FF00; }
+    from { 
+        box-shadow: 5px 5px 0px #000000, 0 0 10px #00FFFF; 
+        transform: scale(1);
+    }
+    to { 
+        box-shadow: 5px 5px 0px #000000, 0 0 20px #00FFFF, 0 0 30px #0080FF; 
+        transform: scale(1.02);
+    }
+}
+
+/* MASCOTTE KIKI QUI SUIT LA SOURIS */
+.kiki-mascot-follower {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+}
+
+.mascot-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid #FFFF00;
+    box-shadow: 
+        0 0 8px #FFFF00,
+        2px 2px 0px #000000;
+    animation: mascot-bounce 2s ease-in-out infinite;
+    background: #FFFFFF;
+    object-fit: cover;
+}
+
+@keyframes mascot-bounce {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg) scale(1);
+        border-color: #FFFF00;
+        box-shadow: 0 0 8px #FFFF00, 2px 2px 0px #000000;
+    }
+    25% { 
+        transform: translateY(-5px) rotate(-2deg) scale(1.1);
+        border-color: #FF00FF;
+        box-shadow: 0 0 10px #FF00FF, 2px 2px 0px #000000;
+    }
+    50% { 
+        transform: translateY(-3px) rotate(0deg) scale(1.15);
+        border-color: #00FFFF;
+        box-shadow: 0 0 12px #00FFFF, 2px 2px 0px #000000;
+    }
+    75% { 
+        transform: translateY(-5px) rotate(2deg) scale(1.1);
+        border-color: #00FF00;
+        box-shadow: 0 0 10px #00FF00, 2px 2px 0px #000000;
+    }
+}
+
+.mascot-speech-bubble {
+    position: absolute;
+    top: -35px;
+    left: -40px;
+    background: linear-gradient(45deg, #FFFF00, #FFA500);
+    border: 2px solid #000000;
+    border-radius: 15px;
+    padding: 6px 10px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #000000;
+    text-shadow: 1px 1px 0px #FFFFFF;
+    white-space: nowrap;
+    opacity: 0;
+    transform: scale(0.5) translateY(10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    box-shadow: 2px 2px 0px #000000;
+    animation: bubble-glow 3s ease-in-out infinite;
+}
+
+.mascot-speech-bubble::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -6px;
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: #FFFF00 transparent transparent transparent;
+    filter: drop-shadow(1px 1px 0px #000000);
+}
+
+@keyframes bubble-glow {
+    0%, 100% { 
+        box-shadow: 2px 2px 0px #000000, 0 0 4px #FFFF00;
+    }
+    50% { 
+        box-shadow: 2px 2px 0px #000000, 0 0 10px #FFA500, 0 0 15px #FFA500;
+    }
+}
+
+.mascot-speech-bubble.show {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* Animation spéciale quand Kiki est excité */
+.kiki-mascot-follower.excited .mascot-image {
+    animation: mascot-excited 0.5s ease-in-out infinite;
+}
+
+@keyframes mascot-excited {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.2) rotate(-10deg); }
+    75% { transform: scale(1.2) rotate(10deg); }
+}
+
+/* Animation spéciale quand Kiki dort (pas de mouvement souris) */
+.kiki-mascot-follower.sleeping .mascot-image {
+    animation: mascot-sleeping 3s ease-in-out infinite;
+    opacity: 0.7;
+    filter: grayscale(30%);
+}
+
+@keyframes mascot-sleeping {
+    0%, 100% { transform: scale(0.9) rotate(-2deg); }
+    50% { transform: scale(0.8) rotate(2deg); }
+}
+
+.kiki-mascot-follower.sleeping .mascot-speech-bubble {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* Animation pour l'entrée de la mascotte */
+.kiki-mascot-follower.entering {
+    animation: mascot-enter 1s ease-out forwards;
+}
+
+@keyframes mascot-enter {
+    0% {
+        transform: scale(0) rotate(180deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.3) rotate(90deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
 }
 
 .footer {

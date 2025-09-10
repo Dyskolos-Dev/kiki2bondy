@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 JEUX DE KIKI - Arcade Vintage ! 🎮</title>
+    <link rel="stylesheet" href="styles90s.css">
+    <style>
+        .games-header {
+            background: 
+                linear-gradient(45deg, #FF0000, #FF8000, #FFFF00, #00FF00, #00FFFF, #0000FF, #8000FF),
+                radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 400% 400%, 20px 20px;
+            animation: games-rainbow 5s ease infinite, games-dots 10s linear infinite;
+            text-align: center;
+            padding: 25px;
+            border: 5px solid #FFFFFF;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes games-rainbow {
+            0% { background-position: 0% 50%, 0 0; }
+            50% { background-position: 100% 50%, 10px 10px; }
+            100% { background-position: 0% 50%, 0 0; }
+        }
+        
+        @keyframes games-dots {
+            0% { background-position: 0% 50%, 0 0; }
+            100% { background-position: 0% 50%, 20px 20px; }
+        }
+        
+        .games-title {
+            font-size: 42px;
+            color: #FFFFFF;
+            text-shadow: 4px 4px 0px #000000, 0 0 20px #FFFFFF;
+            animation: title-neon 3s ease-in-out infinite alternate;
+            margin: 0;
+        }
+        
+        @keyframes title-neon {
+            from { 
+                text-shadow: 4px 4px 0px #000000, 0 0 20px #FFFFFF;
+                transform: scale(1);
+            }
+            to { 
+                text-shadow: 4px 4px 0px #000000, 0 0 40px #FFFF00, 0 0 60px #FFFF00;
+                transform: scale(1.02);
+            }
+        }
+        
+        .games-subtitle {
+            font-size: 18px;
+            color: #FFFF00;
+            margin: 15px 0 0 0;
+            font-weight: bold;
+            text-shadow: 2px 2px 0px #000000;
+            animation: subtitle-blink 2s ease-in-out infinite;
+        }
+        
+        @keyframes subtitle-blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.7; }
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(45deg, #FF4500, #FF6347);
+            color: #FFFFFF;
+            border: 3px outset #FFFFFF;
+            padding: 12px 18px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+            box-shadow: 4px 4px 0px #000000;
+            animation: back-spin 4s linear infinite;
+            z-index: 100;
+        }
+        
+        @keyframes back-spin {
+            0% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(90deg) scale(1.1); }
+            50% { transform: rotate(180deg) scale(1); }
+            75% { transform: rotate(270deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .game-card {
+            background: linear-gradient(135deg, #4B0082, #8B008B, #800080);
+            border: 5px ridge #FFD700;
+            padding: 20px;
+            box-shadow: 10px 10px 0px #000000;
+            animation: card-pulse 4s ease-in-out infinite alternate;
+            text-align: center;
+        }
+        
+        @keyframes card-pulse {
+            from { 
+                box-shadow: 10px 10px 0px #000000, 0 0 15px #800080;
+                transform: scale(1);
+            }
+            to { 
+                box-shadow: 10px 10px 0px #000000, 0 0 30px #FF00FF, 0 0 45px #FF00FF;
+                transform: scale(1.02);
+            }
+        }
+        
+        .game-title {
+            color: #FFD700;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 0 15px 0;
+            text-shadow: 2px 2px 0px #000000;
+            animation: game-title-glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes game-title-glow {
+            from { color: #FFD700; }
+            to { color: #FFFF00; }
+        }
+        
+        .game-area {
+            background: #000000;
+            border: 4px inset #C0C0C0;
+            margin: 15px 0;
+            position: relative;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .game-controls {
+            margin: 15px 0;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .game-btn {
+            background: linear-gradient(45deg, #00FF00, #00FFFF);
+            color: #000000;
+            border: 3px outset #FFFFFF;
+            padding: 10px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 3px 3px 0px #000000;
+            animation: btn-glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes btn-glow {
+            from { box-shadow: 3px 3px 0px #000000, 0 0 5px #00FF00; }
+            to { box-shadow: 3px 3px 0px #000000, 0 0 15px #00FFFF, 0 0 25px #00FFFF; }
+        }
+        
+        .game-btn:hover {
+            background: linear-gradient(45deg, #FFFF00, #FF00FF);
+            border: 3px inset #FFFFFF;
+            animation: btn-shake 0.2s linear infinite;
+        }
+        
+        @keyframes btn-shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-1px); }
+            75% { transform: translateX(1px); }
+        }
+        
+        .score-display {
+            background: #000000;
+            color: #00FF00;
+            border: 3px inset #C0C0C0;
+            padding: 10px;
+            font-family: "Courier New", monospace;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0;
+            animation: score-flicker 3s linear infinite;
+        }
+        
+        @keyframes score-flicker {
+            0%, 98% { opacity: 1; }
+            99%, 100% { opacity: 0.5; }
+        }
+        
+        /* SNAKE GAME */
+        #snake-canvas {
+            background: #001100;
+            border: 2px solid #00FF00;
+        }
+        
+        /* MEMORY GAME */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            padding: 20px;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+        
+        .memory-card {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #FF0000, #8B0000);
+            border: 3px outset #FFFFFF;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 0px #000000;
+            transition: all 0.3s ease;
+            animation: card-glow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes card-glow {
+            from { box-shadow: 2px 2px 0px #000000, 0 0 5px #FF0000; }
+            to { box-shadow: 2px 2px 0px #000000, 0 0 15px #FF4500, 0 0 25px #FF4500; }
+        }
+        
+        .memory-card.flipped {
+            background: linear-gradient(45deg, #00FF00, #008000);
+            border: 3px inset #FFFFFF;
+            transform: rotateY(180deg);
+        }
+        
+        .memory-card.matched {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            animation: card-success 1s ease-in-out;
+        }
+        
+        @keyframes card-success {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        /* KIKI CLICKER GAME */
+        .kiki-clicker {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .kiki-clickable {
+            width: 120px;
+            height: 120px;
+            background: url('src/kiki.png') center/cover;
+            border: 5px solid #FFFF00;
+            border-radius: 50%;
+            cursor: pointer;
+            margin: 20px auto;
+            transition: all 0.1s ease;
+            animation: kiki-bounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes kiki-bounce {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.05) rotate(-2deg); }
+            75% { transform: scale(1.05) rotate(2deg); }
+        }
+        
+        .kiki-clickable:hover {
+            transform: scale(1.1);
+            border-color: #FF00FF;
+            box-shadow: 0 0 20px #FF00FF;
+        }
+        
+        .kiki-clickable.clicked {
+            animation: kiki-click 0.3s ease-out;
+        }
+        
+        @keyframes kiki-click {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3) rotate(10deg); }
+            100% { transform: scale(1.1); }
+        }
+        
+        .upgrade-shop {
+            background: rgba(0,0,0,0.8);
+            border: 3px solid #FFD700;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: left;
+        }
+        
+        .upgrade-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 8px 0;
+            color: #FFFFFF;
+            font-size: 12px;
+        }
+        
+        .upgrade-btn {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000000;
+            border: 2px outset #FFFFFF;
+            padding: 5px 10px;
+            font-size: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .upgrade-btn:disabled {
+            background: #666666;
+            color: #CCCCCC;
+            cursor: not-allowed;
+        }
+        
+        /* Effets spéciaux */
+        .floating-score {
+            position: absolute;
+            color: #FFFF00;
+            font-weight: bold;
+            font-size: 20px;
+            text-shadow: 2px 2px 0px #000000;
+            animation: float-up 1s ease-out forwards;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        @keyframes float-up {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-50px) scale(1.5);
+            }
+        }
+        
+        .game-instructions {
+            background: rgba(255,255,0,0.2);
+            border: 2px solid #FFFF00;
+            padding: 10px;
+            margin: 10px 0;
+            color: #FFFFFF;
+            font-size: 12px;
+            text-align: center;
+        }
+        
+        .high-score {
+            background: #8B0000;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+            padding: 5px 10px;
+            margin: 5px 0;
+            font-size: 12px;
+            text-align: center;
+            font-weight: bold;
+            animation: high-score-glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes high-score-glow {
+            from { box-shadow: 0 0 5px #FFD700; }
+            to { box-shadow: 0 0 15px #FFD700, 0 0 25px #FFD700; }
+        }
+    </style>
+</head>
+<body>
+    <marquee behavior="scroll" direction="left" scrollamount="4">
+        🎮 BIENVENUE DANS L'ARCADE DE KIKI ! 🎮 JEUX RÉTRO GARANTIS ADDICTIFS ! 🎮 RECORD À BATTRE ! 🎮
+    </marquee>
+    
+    <a href="index.html" class="back-button">🏠 RETOUR</a>
+    
+    <div class="container">
+        <div class="games-header">
+            <h1 class="games-title">🎮 ARCADE KIKI 🎮</h1>
+            <p class="games-subtitle">Les meilleurs jeux rétro approuvés par Kiki !</p>
+        </div>
+        
+        <div class="games-grid">
+            <!-- SNAKE GAME -->
+            <div class="game-card">
+                <h2 class="game-title">🐍 KIKI SNAKE 🐍</h2>
+                <div class="game-instructions">
+                    Utilise les flèches pour diriger Kiki-serpent ! Mange les kebabs pour grandir !
+                </div>
+                <div class="score-display">
+                    SCORE: <span id="snake-score">0</span> | RECORD: <span id="snake-high-score">0</span>
+                </div>
+                <div class="game-area">
+                    <canvas id="snake-canvas" width="280" height="280"></canvas>
+                </div>
+                <div class="game-controls">
+                    <button class="game-btn" onclick="startSnakeGame()">🎮 JOUER</button>
+                    <button class="game-btn" onclick="pauseSnakeGame()">⏸️ PAUSE</button>
+                    <button class="game-btn" onclick="resetSnakeGame()">🔄 RESET</button>
+                </div>
+            </div>
+            
+            <!-- MEMORY GAME -->
+            <div class="game-card">
+                <h2 class="game-title">🧠 KIKI MEMORY 🧠</h2>
+                <div class="game-instructions">
+                    Trouve les paires de Kiki ! Clique sur 2 cartes pour les retourner !
+                </div>
+                <div class="score-display">
+                    COUPS: <span id="memory-moves">0</span> | PAIRES: <span id="memory-pairs">0/8</span>
+                </div>
+                <div class="high-score">
+                    🏆 MEILLEUR: <span id="memory-best">∞</span> coups
+                </div>
+                <div class="game-area">
+                    <div class="memory-grid" id="memory-grid">
+                        <!-- Cards will be generated by JS -->
+                    </div>
+                </div>
+                <div class="game-controls">
+                    <button class="game-btn" onclick="startMemoryGame()">🎮 NOUVEAU JEU</button>
+                    <button class="game-btn" onclick="resetMemoryGame()">🔄 RESET</button>
+                </div>
+            </div>
+            
+            <!-- KIKI CLICKER -->
+            <div class="game-card">
+                <h2 class="game-title">👆 KIKI CLICKER 👆</h2>
+                <div class="game-instructions">
+                    Clique sur Kiki pour gagner des points ! Achète des améliorations !
+                </div>
+                <div class="score-display">
+                    KIKI POINTS: <span id="clicker-score">0</span>
+                </div>
+                <div class="score-display">
+                    Points/sec: <span id="clicker-per-sec">0</span>
+                </div>
+                <div class="game-area">
+                    <div class="kiki-clicker">
+                        <div class="kiki-clickable" id="kiki-click-target" onclick="clickKiki()"></div>
+                        <div class="upgrade-shop">
+                            <div class="upgrade-item">
+                                <span>🍻 Claude du PMU (+1/clic)</span>
+                                <button class="upgrade-btn" id="upgrade-claude" onclick="buyUpgrade('claude')">10 pts</button>
+                            </div>
+                            <div class="upgrade-item">
+                                <span>🥙 Kebab Power (+5/clic)</span>
+                                <button class="upgrade-btn" id="upgrade-kebab" onclick="buyUpgrade('kebab')">50 pts</button>
+                            </div>
+                            <div class="upgrade-item">
+                                <span>✊ Auto-Manif (+2/sec)</span>
+                                <button class="upgrade-btn" id="upgrade-manif" onclick="buyUpgrade('manif')">100 pts</button>
+                            </div>
+                            <div class="upgrade-item">
+                                <span>🐧 Pingouins Profs (+10/sec)</span>
+                                <button class="upgrade-btn" id="upgrade-penguin" onclick="buyUpgrade('penguin')">500 pts</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-controls">
+                    <button class="game-btn" onclick="resetClickerGame()">🔄 RESET</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <marquee direction="right" scrollamount="2" style="color: #00FFFF;">
+            🎮 Arcade Kiki™ 🎮 Jeux développés au PMU place Carnot 🎮 Testé par Claude en personne ! 🎮
+        </marquee>
+    </footer>
+    
+    <script>
+        // SNAKE GAME
+        let snakeGame = {
+            canvas: null,
+            ctx: null,
+            snake: [{x: 140, y: 140}],
+            food: {x: 0, y: 0},
+            direction: {x: 0, y: 0},
+            score: 0,
+            gameRunning: false,
+            gameLoop: null,
+            gridSize: 20,
+            kikiHeadImage: null,
+            
+            init() {
+                this.canvas = document.getElementById('snake-canvas');
+                this.ctx = this.canvas.getContext('2d');
+                
+                // Charger l'image de Kiki pour la tête
+                this.kikiHeadImage = new Image();
+                this.kikiHeadImage.onload = () => {
+                    this.draw(); // Redessiner quand l'image est chargée
+                };
+                this.kikiHeadImage.src = 'src/kiki.png';
+                
+                this.generateFood();
+                this.loadHighScore();
+                this.bindControls();
+                this.draw(); // Dessiner l'état initial
+            },
+            
+            bindControls() {
+                document.addEventListener('keydown', (e) => {
+                    if (!this.gameRunning) return;
+                    
+                    switch(e.key) {
+                        case 'ArrowUp':
+                            if (this.direction.y === 0) {
+                                this.direction = {x: 0, y: -this.gridSize};
+                                e.preventDefault();
+                            }
+                            break;
+                        case 'ArrowDown':
+                            if (this.direction.y === 0) {
+                                this.direction = {x: 0, y: this.gridSize};
+                                e.preventDefault();
+                            }
+                            break;
+                        case 'ArrowLeft':
+                            if (this.direction.x === 0) {
+                                this.direction = {x: -this.gridSize, y: 0};
+                                e.preventDefault();
+                            }
+                            break;
+                        case 'ArrowRight':
+                            if (this.direction.x === 0) {
+                                this.direction = {x: this.gridSize, y: 0};
+                                e.preventDefault();
+                            }
+                            break;
+                    }
+                });
+            },
+            
+            generateFood() {
+                const maxPos = Math.floor(280 / this.gridSize) - 1;
+                this.food = {
+                    x: Math.floor(Math.random() * maxPos) * this.gridSize,
+                    y: Math.floor(Math.random() * maxPos) * this.gridSize
+                };
+                
+                // Vérifier que la nourriture n'apparaît pas sur le serpent
+                for (let segment of this.snake) {
+                    if (this.food.x === segment.x && this.food.y === segment.y) {
+                        this.generateFood(); // Régénérer si collision
+                        return;
+                    }
+                }
+            },
+            
+            update() {
+                if (!this.gameRunning || this.direction.x === 0 && this.direction.y === 0) return;
+                
+                const head = {
+                    x: this.snake[0].x + this.direction.x, 
+                    y: this.snake[0].y + this.direction.y
+                };
+                
+                // Collision avec les murs
+                if (head.x < 0 || head.x >= 280 || head.y < 0 || head.y >= 280) {
+                    this.gameOver();
+                    return;
+                }
+                
+                // Collision avec soi-même
+                for (let segment of this.snake) {
+                    if (head.x === segment.x && head.y === segment.y) {
+                        this.gameOver();
+                        return;
+                    }
+                }
+                
+                this.snake.unshift(head);
+                
+                // Manger la nourriture
+                if (head.x === this.food.x && head.y === this.food.y) {
+                    this.score += 10;
+                    this.updateScore();
+                    this.generateFood();
+                    this.showFloatingScore('+10', head.x + 300, head.y + 150);
+                } else {
+                    this.snake.pop();
+                }
+                
+                this.draw();
+            },
+            
+            draw() {
+                // Clear canvas avec fond vert terminal
+                this.ctx.fillStyle = '#001100';
+                this.ctx.fillRect(0, 0, 280, 280);
+                
+                // Grille subtile (optionnel)
+                this.ctx.strokeStyle = '#002200';
+                this.ctx.lineWidth = 1;
+                for (let i = 0; i <= 280; i += this.gridSize) {
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(i, 0);
+                    this.ctx.lineTo(i, 280);
+                    this.ctx.stroke();
+                    
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(0, i);
+                    this.ctx.lineTo(280, i);
+                    this.ctx.stroke();
+                }
+                
+                // Draw snake body (segments jaunes)
+                this.ctx.fillStyle = '#FFFF00';
+                this.ctx.strokeStyle = '#000000';
+                this.ctx.lineWidth = 2;
+                
+                for (let i = 1; i < this.snake.length; i++) { // Commencer à 1 pour ignorer la tête
+                    const segment = this.snake[i];
+                    this.ctx.fillRect(segment.x + 1, segment.y + 1, this.gridSize - 2, this.gridSize - 2);
+                    this.ctx.strokeRect(segment.x + 1, segment.y + 1, this.gridSize - 2, this.gridSize - 2);
+                }
+                
+                // Draw snake head avec l'image de Kiki
+                if (this.snake.length > 0) {
+                    const head = this.snake[0];
+                    
+                    if (this.kikiHeadImage && this.kikiHeadImage.complete) {
+                        // Dessiner l'image de Kiki comme tête
+                        this.ctx.save();
+                        
+                        // Créer un clip circulaire pour la tête
+                        this.ctx.beginPath();
+                        this.ctx.arc(
+                            head.x + this.gridSize/2, 
+                            head.y + this.gridSize/2, 
+                            (this.gridSize - 2)/2, 
+                            0, 
+                            2 * Math.PI
+                        );
+                        this.ctx.clip();
+                        
+                        // Dessiner l'image de Kiki
+                        this.ctx.drawImage(
+                            this.kikiHeadImage,
+                            head.x + 1,
+                            head.y + 1,
+                            this.gridSize - 2,
+                            this.gridSize - 2
+                        );
+                        
+                        this.ctx.restore();
+                        
+                        // Bordure dorée pour la tête de Kiki
+                        this.ctx.strokeStyle = '#FFD700';
+                        this.ctx.lineWidth = 3;
+                        this.ctx.beginPath();
+                        this.ctx.arc(
+                            head.x + this.gridSize/2, 
+                            head.y + this.gridSize/2, 
+                            (this.gridSize - 2)/2, 
+                            0, 
+                            2 * Math.PI
+                        );
+                        this.ctx.stroke();
+                        
+                        // Effet glow pour la tête
+                        this.ctx.strokeStyle = '#FFFF00';
+                        this.ctx.lineWidth = 1;
+                        this.ctx.beginPath();
+                        this.ctx.arc(
+                            head.x + this.gridSize/2, 
+                            head.y + this.gridSize/2, 
+                            (this.gridSize)/2, 
+                            0, 
+                            2 * Math.PI
+                        );
+                        this.ctx.stroke();
+                        
+                    } else {
+                        // Fallback si l'image n'est pas chargée
+                        this.ctx.fillStyle = '#FF0000';
+                        this.ctx.fillRect(head.x + 1, head.y + 1, this.gridSize - 2, this.gridSize - 2);
+                        this.ctx.strokeStyle = '#000000';
+                        this.ctx.strokeRect(head.x + 1, head.y + 1, this.gridSize - 2, this.gridSize - 2);
+                    }
+                }
+                
+                // Draw food (kebab)
+                this.ctx.fillStyle = '#FF6347';
+                this.ctx.fillRect(this.food.x + 1, this.food.y + 1, this.gridSize - 2, this.gridSize - 2);
+                
+                // Emoji kebab au centre
+                this.ctx.fillStyle = '#FFFFFF';
+                this.ctx.font = '14px Arial';
+                this.ctx.textAlign = 'center';
+                this.ctx.fillText('🥙', this.food.x + this.gridSize/2, this.food.y + this.gridSize/2 + 4);
+            },
+            
+            start() {
+                if (this.gameRunning) return;
+                
+                this.gameRunning = true;
+                this.direction = {x: this.gridSize, y: 0}; // Commencer vers la droite
+                
+                this.gameLoop = setInterval(() => this.update(), 200);
+            },
+            
+            pause() {
+                if (!this.gameLoop) return;
+                
+                this.gameRunning = !this.gameRunning;
+                if (this.gameRunning) {
+                    this.gameLoop = setInterval(() => this.update(), 200);
+                } else {
+                    clearInterval(this.gameLoop);
+                    this.gameLoop = null;
+                }
+            },
+            
+            reset() {
+                clearInterval(this.gameLoop);
+                this.gameLoop = null;
+                this.gameRunning = false;
+                this.snake = [{x: 140, y: 140}];
+                this.direction = {x: 0, y: 0};
+                this.score = 0;
+                this.updateScore();
+                this.generateFood();
+                this.draw();
+            },
+            
+            gameOver() {
+                clearInterval(this.gameLoop);
+                this.gameLoop = null;
+                this.gameRunning = false;
+                this.saveHighScore();
+                
+                setTimeout(() => {
+                    alert(`💀 GAME OVER ! 💀\n\nScore final: ${this.score} points\n\nAppuie sur JOUER pour recommencer ! 🐍`);
+                }, 100);
+            },
+            
+            updateScore() {
+                document.getElementById('snake-score').textContent = this.score;
+            },
+            
+            loadHighScore() {
+                const highScore = localStorage.getItem('kiki-snake-high-score') || 0;
+                document.getElementById('snake-high-score').textContent = highScore;
+            },
+            
+            saveHighScore() {
+                const currentHigh = parseInt(localStorage.getItem('kiki-snake-high-score')) || 0;
+                if (this.score > currentHigh) {
+                    localStorage.setItem('kiki-snake-high-score', this.score);
+                    document.getElementById('snake-high-score').textContent = this.score;
+                    
+                    setTimeout(() => {
+                        alert(`🎉 NOUVEAU RECORD ! 🎉\n\nTu as battu ton ancien record !\nNouveau record: ${this.score} points !`);
+                    }, 500);
+                }
+            },
+            
+            showFloatingScore(text, x, y) {
+                const floatingEl = document.createElement('div');
+                floatingEl.className = 'floating-score';
+                floatingEl.textContent = text;
+                floatingEl.style.left = x + 'px';
+                floatingEl.style.top = y + 'px';
+                floatingEl.style.position = 'fixed';
+                document.body.appendChild(floatingEl);
+                
+                setTimeout(() => floatingEl.remove(), 1000);
+            }
+        };
+        
+        // MEMORY GAME
+        let memoryGame = {
+            cards: [],
+            flippedCards: [],
+            matchedPairs: 0,
+            moves: 0,
+            gameStarted: false,
+            
+            symbols: ['🎉', '🥙', '🍻', '✊', '🐧', '📚', '🌟', '🎯'],
+            
+            init() {
+                this.loadBestScore();
+                this.createBoard();
+            },
+            
+            createBoard() {
+                const grid = document.getElementById('memory-grid');
+                grid.innerHTML = '';
+                
+                // Créer les paires
+                const gameCards = [...this.symbols, ...this.symbols];
+                this.shuffle(gameCards);
+                
+                this.cards = gameCards.map((symbol, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'memory-card';
+                    card.dataset.symbol = symbol;
+                    card.dataset.index = index;
+                    card.textContent = '?';
+                    card.onclick = () => this.flipCard(card);
+                    grid.appendChild(card);
+                    return { element: card, symbol: symbol, flipped: false, matched: false };
+                });
+            },
+            
+            shuffle(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            },
+            
+            flipCard(cardElement) {
+                const index = parseInt(cardElement.dataset.index);
+                const card = this.cards[index];
+                
+                if (card.flipped || card.matched || this.flippedCards.length >= 2) return;
+                
+                // Flip card
+                card.flipped = true;
+                cardElement.classList.add('flipped');
+                cardElement.textContent = card.symbol;
+                this.flippedCards.push(card);
+                
+                if (!this.gameStarted) {
+                    this.gameStarted = true;
+                }
+                
+                if (this.flippedCards.length === 2) {
+                    this.moves++;
+                    this.updateScore();
+                    
+                    setTimeout(() => this.checkMatch(), 800);
+                }
+            },
+            
+            checkMatch() {
+                const [card1, card2] = this.flippedCards;
+                
+                if (card1.symbol === card2.symbol) {
+                    // Match !
+                    card1.matched = true;
+                    card2.matched = true;
+                    card1.element.classList.add('matched');
+                    card2.element.classList.add('matched');
+                    this.matchedPairs++;
+                    
+                    if (this.matchedPairs === 8) {
+                        setTimeout(() => this.gameWon(), 500);
+                    }
+                } else {
+                    // Pas de match
+                    card1.flipped = false;
+                    card2.flipped = false;
+                    card1.element.classList.remove('flipped');
+                    card2.element.classList.remove('flipped');
+                    card1.element.textContent = '?';
+                    card2.element.textContent = '?';
+                }
+                
+                this.flippedCards = [];
+            },
+            
+            updateScore() {
+                document.getElementById('memory-moves').textContent = this.moves;
+                document.getElementById('memory-pairs').textContent = `${this.matchedPairs}/8`;
+            },
+            
+            gameWon() {
+                this.saveBestScore();
+                alert(`Bravo ! Tu as gagné en ${this.moves} coups ! 🧠🎉`);
+            },
+            
+            reset() {
+                this.moves = 0;
+                this.matchedPairs = 0;
+                this.flippedCards = [];
+                this.gameStarted = false;
+                this.updateScore();
+                this.createBoard();
+            },
+            
+            loadBestScore() {
+                const best = localStorage.getItem('kiki-memory-best') || '∞';
+                document.getElementById('memory-best').textContent = best;
+            },
+            
+            saveBestScore() {
+                const currentBest = localStorage.getItem('kiki-memory-best');
+                if (!currentBest || currentBest === '∞' || this.moves < parseInt(currentBest)) {
+                    localStorage.setItem('kiki-memory-best', this.moves);
+                    document.getElementById('memory-best').textContent = this.moves;
+                }
+            }
+        };
+        
+        // KIKI CLICKER GAME
+        let clickerGame = {
+            score: 0,
+            clickPower: 1,
+            autoPerSec: 0,
+            upgrades: {
+                claude: { cost: 10, owned: 0, clickBonus: 1 },
+                kebab: { cost: 50, owned: 0, clickBonus: 5 },
+                manif: { cost: 100, owned: 0, autoBonus: 2 },
+                penguin: { cost: 500, owned: 0, autoBonus: 10 }
+            },
+            
+            init() {
+                this.loadProgress();
+                this.updateDisplay();
+                this.startAutoClicker();
+            },
+            
+            click() {
+                this.score += this.clickPower;
+                this.updateDisplay();
+                this.saveProgress();
+                
+                const target = document.getElementById('kiki-click-target');
+                target.classList.add('clicked');
+                setTimeout(() => target.classList.remove('clicked'), 300);
+                
+                // Floating score
+                this.showFloatingScore(`+${this.clickPower}`, 
+                    target.offsetLeft + 60, target.offsetTop + 60);
+            },
+            
+            buyUpgrade(type) {
+                const upgrade = this.upgrades[type];
+                if (this.score >= upgrade.cost) {
+                    this.score -= upgrade.cost;
+                    upgrade.owned++;
+                    
+                    if (upgrade.clickBonus) {
+                        this.clickPower += upgrade.clickBonus;
+                    }
+                    if (upgrade.autoBonus) {
+                        this.autoPerSec += upgrade.autoBonus;
+                    }
+                    
+                    upgrade.cost = Math.floor(upgrade.cost * 1.5);
+                    
+                    this.updateDisplay();
+                    this.saveProgress();
+                }
+            },
+            
+            updateDisplay() {
+                document.getElementById('clicker-score').textContent = this.score;
+                document.getElementById('clicker-per-sec').textContent = this.autoPerSec;
+                
+                // Update upgrade buttons
+                for (let [type, upgrade] of Object.entries(this.upgrades)) {
+                    const btn = document.getElementById(`upgrade-${type}`);
+                    btn.textContent = `${upgrade.cost} pts`;
+                    btn.disabled = this.score < upgrade.cost;
+                }
+            },
+            
+            startAutoClicker() {
+                setInterval(() => {
+                    if (this.autoPerSec > 0) {
+                        this.score += this.autoPerSec;
+                        this.updateDisplay();
+                        this.saveProgress();
+                    }
+                }, 1000);
+            },
+            
+            reset() {
+                this.score = 0;
+                this.clickPower = 1;
+                this.autoPerSec = 0;
+                this.upgrades = {
+                    claude: { cost: 10, owned: 0, clickBonus: 1 },
+                    kebab: { cost: 50, owned: 0, clickBonus: 5 },
+                    manif: { cost: 100, owned: 0, autoBonus: 2 },
+                    penguin: { cost: 500, owned: 0, autoBonus: 10 }
+                };
+                this.updateDisplay();
+                this.saveProgress();
+            },
+            
+            showFloatingScore(text, x, y) {
+                const floatingEl = document.createElement('div');
+                floatingEl.className = 'floating-score';
+                floatingEl.textContent = text;
+                floatingEl.style.left = x + 'px';
+                floatingEl.style.top = y + 'px';
+                document.body.appendChild(floatingEl);
+                
+                setTimeout(() => floatingEl.remove(), 1000);
+            },
+            
+            saveProgress() {
+                localStorage.setItem('kiki-clicker-save', JSON.stringify({
+                    score: this.score,
+                    clickPower: this.clickPower,
+                    autoPerSec: this.autoPerSec,
+                    upgrades: this.upgrades
+                }));
+            },
+            
+            loadProgress() {
+                const saved = localStorage.getItem('kiki-clicker-save');
+                if (saved) {
+                    const data = JSON.parse(saved);
+                    this.score = data.score || 0;
+                    this.clickPower = data.clickPower || 1;
+                    this.autoPerSec = data.autoPerSec || 0;
+                    this.upgrades = data.upgrades || this.upgrades;
+                }
+            }
+        };
+        
+        // Fonctions globales pour les boutons
+        function startSnakeGame() { snakeGame.start(); }
+        function pauseSnakeGame() { snakeGame.pause(); }
+        function resetSnakeGame() { snakeGame.reset(); }
+        
+        function startMemoryGame() { memoryGame.reset(); }
+        function resetMemoryGame() { memoryGame.reset(); }
+        
+        function clickKiki() { clickerGame.click(); }
+        function buyUpgrade(type) { clickerGame.buyUpgrade(type); }
+        function resetClickerGame() { 
+            if (confirm('Vraiment reset ? Tu vas perdre tout ton progrès !')) {
+                clickerGame.reset(); 
+            }
+        }
+        
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            snakeGame.init();
+            memoryGame.init();
+            clickerGame.init();
+        });
+    </script>
+</body>
+</html>
