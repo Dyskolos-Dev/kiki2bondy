@@ -1,3 +1,121 @@
+.kiki-menu {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	z-index: 40;
+	background: rgba(255,255,255,0.85);
+	backdrop-filter: blur(8px);
+	border-radius: 18px;
+	box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+	padding: 14px 22px 14px 22px;
+	min-width: 190px;
+	border: 1.5px solid var(--profil-border);
+	transition: background 0.3s, box-shadow 0.3s;
+}
+.dark-theme .kiki-menu {
+	background: rgba(35,39,47,0.92);
+}
+.kiki-menu:hover, .kiki-menu:focus-within {
+	box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+	background: rgba(255,255,255,0.97);
+}
+.dark-theme .kiki-menu:hover, .dark-theme .kiki-menu:focus-within {
+	background: rgba(35,39,47,0.99);
+}
+.kiki-menu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+.kiki-menu li {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.kiki-btn, .kiki-who-btn {
+	width: 100%;
+	min-width: 0;
+	margin: 0;
+	border-radius: 12px;
+	box-sizing: border-box;
+}
+.kiki-menu .kiki-btn, .kiki-menu .kiki-who-btn {
+	font-size: 1.08em;
+	padding: 12px 0;
+}
+@media (max-width: 600px) {
+	.kiki-menu {
+		top: 6px;
+		left: 2vw;
+		min-width: 90vw;
+		max-width: 96vw;
+		padding: 7px 4vw 7px 4vw;
+		border-radius: 12px;
+	}
+	.kiki-menu ul {
+		gap: 8px;
+	}
+	.kiki-menu .kiki-btn, .kiki-menu .kiki-who-btn {
+		font-size: 1em;
+		padding: 8px 0;
+	}
+}
+.kiki-btn-group {
+	position: fixed;
+	top: 24px;
+	left: 24px;
+	z-index: 30;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	align-items: flex-start;
+}
+
+.kiki-btn,
+.kiki-who-btn {
+	min-width: 180px;
+	box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+	.kiki-btn-group {
+		top: 12px;
+		left: 8px;
+		gap: 8px;
+	}
+	.kiki-btn, .kiki-who-btn {
+		min-width: 120px;
+		font-size: 1em;
+		padding: 8px 10px;
+	}
+}
+.kiki-who-btn {
+	position: fixed;
+	top: 70px;
+	left: 32px;
+	z-index: 20;
+	background: var(--container-bg);
+	color: var(--slogan);
+	border: 2px solid var(--slogan);
+	border-radius: 24px;
+	padding: 10px 22px;
+	font-size: 1.1em;
+	font-weight: 600;
+	cursor: pointer;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+	transition: background 0.3s, color 0.3s, border 0.3s;
+	text-decoration: none;
+	display: inline-block;
+	text-align: center;
+}
+.kiki-who-btn:hover {
+	background: var(--slogan);
+	color: #fff;
+}
 .kiki-btn {
 	position: fixed;
 	top: 24px;

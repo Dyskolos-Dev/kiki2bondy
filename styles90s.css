@@ -1,0 +1,334 @@
+/* SITE WEB ANNÉES 90 - KIKI DE BONDY */
+
+body {
+    background: #000080;
+    background-image: 
+        radial-gradient(circle at 20% 20%, #FF00FF 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, #00FFFF 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, #FFFF00 0%, transparent 50%);
+    color: #FFFF00;
+    font-family: "Times New Roman", serif;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+}
+
+marquee {
+    background: linear-gradient(90deg, #FF0000, #00FF00, #0000FF, #FFFF00, #FF00FF);
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px;
+    border: 3px solid #FFFFFF;
+    animation: rainbow-border 2s linear infinite;
+}
+
+@keyframes rainbow-border {
+    0% { border-color: #FF0000; }
+    16% { border-color: #FF8000; }
+    33% { border-color: #FFFF00; }
+    50% { border-color: #00FF00; }
+    66% { border-color: #0080FF; }
+    83% { border-color: #8000FF; }
+    100% { border-color: #FF0000; }
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: linear-gradient(45deg, #800080, #008080);
+    border: 5px ridge #C0C0C0;
+    padding: 20px;
+    box-shadow: 10px 10px 0px #000000;
+}
+
+blink {
+    animation: blink-animation 1s steps(2, start) infinite;
+    color: #FFFF00;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 0px #FF0000;
+}
+
+@keyframes blink-animation {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.profil-kiki {
+    display: block;
+    margin: 20px auto;
+    width: 200px;
+    height: 200px;
+    border: 5px solid #FFFF00;
+    border-radius: 0;
+    box-shadow: 5px 5px 0px #FF00FF;
+    image-rendering: pixelated;
+}
+
+h1 {
+    text-align: center;
+    color: #00FFFF;
+    font-size: 32px;
+    text-shadow: 3px 3px 0px #FF0000;
+    text-decoration: underline;
+    margin: 20px 0;
+}
+
+.section-title {
+    color: #FFFF00;
+    background: #800000;
+    padding: 5px;
+    border: 2px solid #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 15px 0 10px 0;
+}
+
+.intro, .chute, .rejet, .manifestation {
+    background: linear-gradient(90deg, #004080, #800040);
+    border: 3px groove #C0C0C0;
+    padding: 15px;
+    margin: 20px 0;
+    color: #FFFFFF;
+}
+
+.story p, .intro p, .chute p, .rejet p, .manifestation p {
+    color: #FFFFFF;
+    line-height: 1.8;
+    font-size: 16px;
+    text-align: justify;
+}
+
+.story-separator {
+    border: none;
+    border-top: 3px dashed #FFFF00;
+    margin: 25px 0;
+    animation: pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+    from { opacity: 1; }
+    to { opacity: 0.3; }
+}
+
+.slogan {
+    color: #FF00FF;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 0px #000000;
+    text-align: center;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.date {
+    color: #00FF00;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.kiki-menu {
+    position: fixed;
+    top: 50px;
+    left: 20px;
+    z-index: 40;
+    background: linear-gradient(45deg, #FF0080, #8000FF, #0080FF, #00FF80);
+    background-size: 400% 400%;
+    animation: gradient-shift 3s ease infinite;
+    border: 4px outset #FFFF00;
+    padding: 15px;
+    min-width: 220px;
+    box-shadow: 8px 8px 0px #000000, 12px 12px 0px #800080;
+    transform: rotate(-2deg);
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.kiki-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.kiki-menu li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-decoration {
+    background: linear-gradient(90deg, #FF0000, #FFFF00, #00FF00, #00FFFF, #0000FF, #FF00FF);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 8px;
+    border: 2px solid #FFFFFF;
+    font-weight: bold;
+    font-size: 12px;
+    animation: rainbow-text 2s linear infinite, bounce 1s ease-in-out infinite alternate;
+    text-shadow: 2px 2px 0px #000000;
+}
+
+@keyframes rainbow-text {
+    0% { color: #FF0000; }
+    16% { color: #FF8000; }
+    33% { color: #FFFF00; }
+    50% { color: #00FF00; }
+    66% { color: #0080FF; }
+    83% { color: #8000FF; }
+    100% { color: #FF0000; }
+}
+
+.kiki-btn, .kiki-who-btn {
+    width: 100%;
+    background: linear-gradient(45deg, #FFFF00, #FF8000, #FF0080);
+    color: #000000;
+    border: 3px outset #FFFFFF;
+    padding: 12px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    font-family: "Comic Sans MS", "Times New Roman", serif;
+    text-shadow: 1px 1px 0px #FFFFFF;
+    box-shadow: 3px 3px 0px #000000;
+    animation: button-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes button-glow {
+    from { box-shadow: 3px 3px 0px #000000, 0 0 5px #FFFF00; }
+    to { box-shadow: 3px 3px 0px #000000, 0 0 15px #FF0080, 0 0 25px #FF0080; }
+}
+
+.kiki-btn:hover, .kiki-who-btn:hover {
+    background: linear-gradient(45deg, #00FFFF, #00FF00, #FFFF00);
+    border: 3px inset #FFFFFF;
+    transform: scale(1.05);
+    animation: button-party 0.5s linear infinite;
+}
+
+@keyframes button-party {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.theme-toggle {
+    display: none;
+}
+
+.kiki-float {
+    position: fixed;
+    z-index: 1000;
+    pointer-events: none;
+    border-radius: 0;
+    box-shadow: 5px 5px 0px #000000;
+    image-rendering: pixelated;
+}
+
+.visitor-counter {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: #000000;
+    color: #00FF00;
+    border: 2px solid #00FF00;
+    padding: 8px;
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    animation: counter-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes counter-glow {
+    from { box-shadow: 0 0 5px #00FF00; }
+    to { box-shadow: 0 0 15px #00FF00, 0 0 25px #00FF00; }
+}
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #FFFF00;
+    font-size: 14px;
+    background: #800000;
+    padding: 10px;
+    border: 2px solid #FFFFFF;
+}
+
+.footer-link {
+    color: #00FFFF;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.footer-link:hover {
+    color: #FFFF00;
+    text-shadow: 1px 1px 0px #FF0000;
+}
+
+.heart {
+    color: #FF0000;
+    font-size: 14px;
+    animation: heart-beat 1.5s ease-in-out infinite;
+}
+
+@keyframes heart-beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+/* Effets spéciaux années 90 */
+@keyframes rotate-crazy {
+    0% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(90deg) scale(1.2); }
+    50% { transform: rotate(180deg) scale(0.8); }
+    75% { transform: rotate(270deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+strong {
+    color: #FF00FF;
+    text-shadow: 1px 1px 0px #000000;
+}
+
+/* Responsive pour les années 90 (même si ça n'existait pas vraiment) */
+@media (max-width: 600px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    .kiki-menu {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    marquee {
+        font-size: 14px;
+    }
+    
+    .profil-kiki {
+        width: 150px;
+        height: 150px;
+    }
+}

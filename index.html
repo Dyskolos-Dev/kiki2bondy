@@ -4,13 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kiki de Bondy - Un rêve inachevé</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles90s.css">
 </head>
 <body>
-    <button class="theme-toggle" id="theme-toggle" title="Changer de thème">🌙</button>
-    <button class="kiki-btn" id="kiki-btn">Fais apparaître Kiki !</button>
+    <marquee behavior="scroll" direction="left" scrollamount="3">🔥 BIENVENUE SUR LA PAGE DE KIKI DE BONDY 🔥 LE SITE LE PLUS COOL DU WEB 🔥</marquee>
+    <nav class="kiki-menu">
+        <ul>
+            <li><button class="kiki-btn" id="kiki-btn">🎉 FAIS APPARAÎTRE KIKI ! 🎉</button></li>
+            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener" class="kiki-who-btn">🌟 QUI EST KIKI ? 🌟</a></li>
+            <li><div class="menu-decoration">∞ MENU COOL ∞</div></li>
+        </ul>
+    </nav>
     <audio id="pakpak-audio" src="src/pakpak.mp3" preload="auto"></audio>
     <div class="container">
+        <center>
+            <blink>🌟 KIKI DE BONDY - LA LÉGENDE 🌟</blink>
+        </center>
         <img src="src/kiki.jpg" alt="Photo de Kiki de Bondy" class="profil-kiki">
         <h1>L'histoire de Kiki de Bondy</h1>
         <hr class="story-separator">
@@ -35,8 +44,12 @@
             <p class="date">10 septembre - Bondy</p>
         </section>
     </div>
+    <div class="visitor-counter">
+        <img src="https://i.imgur.com/placeholder.gif" alt="You are visitor number" width="20" height="15">
+        Vous êtes le visiteur n°: <span style="color: red; font-weight: bold;">1337</span>
+    </div>
     <script>
-    // Kiki apparition logic
+    // Kiki apparition logic (pas de theme toggle)
     const kikiBtn = document.getElementById('kiki-btn');
     const audio = document.getElementById('pakpak-audio');
     let kikiInterval = null;
@@ -44,27 +57,36 @@
         return Math.random() * (b - a) + a;
     }
     function spawnKiki() {
-        // Create Kiki image
-        const img = document.createElement('img');
-        img.src = 'src/kiki.png';
-        img.alt = 'Kiki';
-        img.className = 'kiki-float';
+        // Play sound (nouvel élément audio à chaque apparition)
+        const audioElem = document.createElement('audio');
+        audioElem.src = 'src/pakpak.mp3';
+        audioElem.volume = 1;
+        audioElem.play();
+        audioElem.addEventListener('ended', () => audioElem.remove());
+        // Create Kiki video
+        const video = document.createElement('video');
+        video.src = 'src/kiki.mp4';
+        video.className = 'kiki-float';
+        video.autoplay = true;
+        video.loop = true;
+        video.muted = true;
+        video.playsInline = true;
         // Random start position
         const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
         const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
         const size = randomBetween(60, 120);
-        img.style.width = size + 'px';
-        img.style.height = size + 'px';
-        img.style.left = randomBetween(0, vw - size) + 'px';
-        img.style.top = randomBetween(0, vh - size) + 'px';
+        video.style.width = size + 'px';
+        video.style.height = size + 'px';
+        video.style.left = randomBetween(0, vw - size) + 'px';
+        video.style.top = randomBetween(0, vh - size) + 'px';
         // Random animation duration and direction
         const duration = randomBetween(8, 18); // plus long pour tourner
         const rotate = Math.random() > 0.5 ? 'kiki-rotate' : 'kiki-rotate-rev';
-        img.style.animation = `${rotate} ${duration}s linear infinite, kiki-move 27s linear forwards`;
-        document.body.appendChild(img);
+        video.style.animation = `${rotate} ${duration}s linear infinite, kiki-move 27s linear forwards`;
+        document.body.appendChild(video);
         // Remove after 27s
         setTimeout(() => {
-            img.remove();
+            video.remove();
         }, 27000);
     }
 
@@ -88,22 +110,6 @@
             audio.loop = false;
         }, 27000);
     });
-        const btn = document.getElementById('theme-toggle');
-        const body = document.body;
-        function setTheme(dark) {
-            if (dark) {
-                body.classList.add('dark-theme');
-                btn.textContent = '☀️';
-            } else {
-                body.classList.remove('dark-theme');
-                btn.textContent = '🌙';
-            }
-        }
-        // Initial theme (light)
-        setTheme(false);
-        btn.addEventListener('click', () => {
-            setTheme(!body.classList.contains('dark-theme'));
-        });
 </script>
         <footer class="footer">
             Made with <span class="heart">❤️</span> by <a href="https://dyskolos.fr" target="_blank" rel="noopener" class="footer-link">Dyskolos_</a>
