@@ -7,22 +7,52 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <button class="theme-toggle" id="theme-toggle" title="Changer de thème">🌙</button>
     <div class="container">
+        <img src="src/kiki.jpg" alt="Photo de Kiki de Bondy" class="profil-kiki">
         <h1>L'histoire de Kiki de Bondy</h1>
-        <div class="story">
+        <hr class="story-separator">
+        <section class="intro">
+            <h2 class="section-title">Le rêve de Kiki</h2>
             <p>Kiki, surnommé <strong>Kiki de Bondy</strong>, a toujours rêvé de devenir professeur. Il passait ses journées à étudier, à imaginer sa vie devant une classe, à transmettre son savoir.</p>
-            <p>Il voulait avoir une vie avec plus de
-            rebondissement et ne pas être mauvais a chaque jeu qu'il touchait.
-            Mais après refelxion et vue ses mauvaises capacité dans chaque domaine le Kik's se
-            retranchat dans la boisson et maintenant traine de bar en bar dans lyon. On l'aurais
-            même vue au pmu de la place carnot a 6h du matin</p>
-            <p>Mais malgré tous ses efforts, Kiki n'a jamais réussi à atteindre son rêve. On lui reprochait son manque de style, son originalité qui ne rentrait pas dans les cases.</p>
+        </section>
+        <section class="chute">
+            <h2 class="section-title">La désillusion</h2>
+            <p>Il voulait une vie pleine de rebondissements et espérait briller dans tout ce qu'il entreprenait. Mais, après réflexion et face à ses difficultés dans chaque domaine, Kiki s'est peu à peu replié sur lui-même.</p>
+            <p>On raconte qu'il traîne désormais de bar en bar dans Lyon, et qu'on l'aurait même aperçu au PMU de la place Carnot à 6h du matin.</p>
+        </section>
+        <section class="rejet">
+            <h2 class="section-title">Un manque de style ?</h2>
+            <p>Malgré tous ses efforts, Kiki n'a jamais réussi à atteindre son rêve. On lui reprochait son manque de style, son originalité qui ne rentrait pas dans les cases.</p>
+        </section>
+        <hr class="story-separator">
+        <section class="manifestation">
+            <h2 class="section-title">La révolte</h2>
             <p>Déçu mais pas abattu, Kiki a décidé de faire entendre sa voix autrement. Le <strong>10 septembre</strong>, il descend dans la rue pour manifester, défendre ses convictions et revendiquer le droit de rêver.</p>
-        </div>
-        <div class="manifestation">
             <p class="slogan">"Même sans style, j'ai le droit de rêver !"</p>
             <p class="date">10 septembre - Bondy</p>
-        </div>
+        </section>
     </div>
+<script>
+    const btn = document.getElementById('theme-toggle');
+    const body = document.body;
+    function setTheme(dark) {
+        if (dark) {
+            body.classList.add('dark-theme');
+            btn.textContent = '☀️';
+        } else {
+            body.classList.remove('dark-theme');
+            btn.textContent = '🌙';
+        }
+    }
+    // Initial theme (light)
+    setTheme(false);
+    btn.addEventListener('click', () => {
+        setTheme(!body.classList.contains('dark-theme'));
+    });
+</script>
+        <footer class="footer">
+            Made with <span class="heart">❤️</span> by <a href="https://dyskolos.fr" target="_blank" rel="noopener" class="footer-link">Dyskolos_</a>
+        </footer>
 </body>
 </html>
