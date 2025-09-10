@@ -12,7 +12,7 @@
         <ul>
             <li><button class="kiki-btn" id="kiki-btn">🎉 FAIS APPARAÎTRE KIKI ! 🎉</button></li>
             <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener" class="kiki-who-btn">🌟 QUI EST KIKI ? 🌟</a></li>
-            <li><div class="menu-decoration">∞ MENU COOL ∞</div></li>
+            <li><div class="menu-decoration" id="menu-cool-btn">∞ MENU COOL ∞</div></li>
         </ul>
     </nav>
     <audio id="pakpak-audio" src="src/pakpak.mp3" preload="auto"></audio>
@@ -48,7 +48,106 @@
         <img src="https://i.imgur.com/placeholder.gif" alt="You are visitor number" width="20" height="15">
         Vous êtes le visiteur n°: <span style="color: red; font-weight: bold;">1337</span>
     </div>
+    
+    <!-- Popup années 90 -->
+    <div class="popup-overlay" id="popup-overlay">
+        <div class="popup-90s">
+            <div class="popup-header">
+                <span class="popup-title">🔥 ALERTE HOT ! 🔥</span>
+                <button class="popup-close" id="popup-close">❌</button>
+            </div>
+            <div class="popup-content">
+                <blink style="color: #FF0000; font-size: 18px;">⚡ KIKI EST À 200 MÈTRES DE CHEZ TOI ! ⚡</blink>
+                <p>💋 Des célibataires CHAUDS dans ta région veulent te rencontrer ! 💋</p>
+                <p style="color: #FFFF00;">👀 KIKI de Bondy cherche l'ÂME SŒUR ! 👀</p>
+                <div class="popup-buttons">
+                    <a href="rencontre.html" class="popup-btn">🔥 CLIQUE ICI ! 🔥</a>
+                    <a href="kiki-profile.html" class="popup-btn">💕 OUI ! 💕</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Menu Kebab très moche -->
+    <div class="kebab-menu-overlay" id="kebab-menu-overlay">
+        <div class="kebab-menu">
+            <div class="kebab-header">
+                <span class="kebab-title">🥙 MENU KEBAB DE KIKI 🥙</span>
+                <button class="kebab-close" id="kebab-close">❌</button>
+            </div>
+            <div class="kebab-content">
+                <h3>🔥 LES SPÉCIALITÉS DE KIKI 🔥</h3>
+                <div class="kebab-item">
+                    <span class="kebab-name">Kebab du Manifestant</span>
+                    <span class="kebab-price">7,50€</span>
+                </div>
+                <div class="kebab-item">
+                    <span class="kebab-name">Tacos de Bondy Deluxe</span>
+                    <span class="kebab-price">9,00€</span>
+                </div>
+                <div class="kebab-item">
+                    <span class="kebab-name">Sandwich Prof Raté</span>
+                    <span class="kebab-price">6,00€</span>
+                </div>
+                <div class="kebab-item">
+                    <span class="kebab-name">Menu PMU Special</span>
+                    <span class="kebab-price">12,50€</span>
+                </div>
+                <div class="kebab-item">
+                    <span class="kebab-name">Salade du 10 Septembre</span>
+                    <span class="kebab-price">5,50€</span>
+                </div>
+                <marquee direction="left" scrollamount="2" style="color: #FF0000; font-weight: bold;">
+                    LIVRAISON GRATUITE PLACE CARNOT ! KIKI LIVRE EN PERSONNE !
+                </marquee>
+            </div>
+        </div>
+    </div>
+    
     <script>
+    // Menu Kebab
+    const menuCoolBtn = document.getElementById('menu-cool-btn');
+    const kebabOverlay = document.getElementById('kebab-menu-overlay');
+    const kebabClose = document.getElementById('kebab-close');
+    
+    // Ouvrir le menu kebab
+    menuCoolBtn.addEventListener('click', () => {
+        kebabOverlay.style.display = 'flex';
+    });
+    
+    // Fermer le menu kebab
+    kebabClose.addEventListener('click', () => {
+        kebabOverlay.style.display = 'none';
+    });
+    
+    // Fermer en cliquant sur l'overlay
+    kebabOverlay.addEventListener('click', (e) => {
+        if (e.target === kebabOverlay) {
+            kebabOverlay.style.display = 'none';
+        }
+    });
+    
+    // Popup années 90
+    const popupOverlay = document.getElementById('popup-overlay');
+    const popupClose = document.getElementById('popup-close');
+    
+    // Afficher le popup après 3 secondes
+    setTimeout(() => {
+        popupOverlay.style.display = 'flex';
+    }, 3000);
+    
+    // Fermer le popup
+    popupClose.addEventListener('click', () => {
+        popupOverlay.style.display = 'none';
+    });
+    
+    // Fermer en cliquant sur l'overlay
+    popupOverlay.addEventListener('click', (e) => {
+        if (e.target === popupOverlay) {
+            popupOverlay.style.display = 'none';
+        }
+    });
+    
     // Kiki apparition logic (pas de theme toggle)
     const kikiBtn = document.getElementById('kiki-btn');
     const audio = document.getElementById('pakpak-audio');

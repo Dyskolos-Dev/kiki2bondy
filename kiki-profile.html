@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💎 Profil de Kiki_Original - RENCONTRE-KIKI.com 💎</title>
+    <style>
+        body {
+            background: #FF69B4;
+            background-image: 
+                radial-gradient(circle at 20% 30%, #FFB6C1 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, #FFC0CB 0%, transparent 50%);
+            color: #8B0000;
+            font-family: "Comic Sans MS", "Times New Roman", serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #8B0000;
+            color: #FFFFFF;
+            border: 3px outset #FFB6C1;
+            padding: 10px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: linear-gradient(45deg, #FFB6C1, #FFC0CB);
+            border: 5px ridge #8B0000;
+            padding: 30px;
+            box-shadow: 15px 15px 0px #000000;
+        }
+        
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .profile-name {
+            font-size: 36px;
+            color: #8B0000;
+            text-shadow: 3px 3px 0px #FFFF00;
+            animation: name-pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes name-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border: 5px solid #8B0000;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 5px 5px 0px #000000;
+        }
+        
+        .profile-info {
+            background: #FAEBD7;
+            border: 3px solid #8B0000;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .info-title {
+            color: #FF1493;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #000080;
+            margin: 15px 0;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-box {
+            background: linear-gradient(45deg, #FFFF00, #FF69B4);
+            border: 2px solid #8B0000;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .contact-btn {
+            background: linear-gradient(45deg, #00FF00, #FFFF00);
+            border: 4px outset #8B0000;
+            color: #8B0000;
+            padding: 15px 30px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 18px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            width: 200px;
+            animation: contact-shake 3s ease-in-out infinite;
+        }
+        
+        @keyframes contact-shake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-2deg); }
+            75% { transform: rotate(2deg); }
+        }
+        
+        .contact-btn:hover {
+            background: linear-gradient(45deg, #FF1493, #00FFFF);
+            color: #FFFFFF;
+            transform: scale(1.2);
+        }
+        
+        .warning {
+            background: #FF0000;
+            color: #FFFFFF;
+            padding: 15px;
+            border: 3px solid #FFFF00;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 20px 0;
+            animation: warning-blink 1s linear infinite;
+        }
+        
+        @keyframes warning-blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body>
+    <a href="rencontre.html" class="back-btn">← RETOUR</a>
+    
+    <div class="container">
+        <div class="profile-header">
+            <div class="profile-name">💎 Kiki_Original 💎</div>
+            <div style="color: #FF1493; font-size: 20px; font-weight: bold;">
+                27 ans - Bondy - En ligne maintenant ! 🔥
+            </div>
+        </div>
+        
+        <img src="src/kiki.jpg" alt="Photo de Kiki" class="profile-photo">
+        
+        <div class="profile-info">
+            <div class="info-title">📝 À propos de moi :</div>
+            <div class="description">
+                Salut les filles ! 😘 Moi c'est Kiki, LE VRAI, l'original de Bondy ! 
+                <br><br>
+                Je suis un mec authentique qui assume totalement son manque de style. 
+                Pourquoi faire comme tout le monde quand on peut être unique ? 🌟
+                <br><br>
+                J'ai rêvé d'être prof mais bon... les rêves c'est fait pour être brisés non ? 😅
+                Maintenant je passe mes journées entre les bars de Lyon et les manifs du 10 septembre. 
+                <br><br>
+                Je cherche une femme qui saura apprécier ma personnalité EXPLOSIVE et mes talents cachés.
+                Niveau physique je suis pas Brad Pitt mais niveau cœur je suis ÉNORME ! 💖
+                <br><br>
+                Si tu veux un mec qui te surprendra chaque jour (en bien ou en mal 😜), 
+                qui te fera rire (même involontairement), c'est moi qu'il te faut !
+            </div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <div>💪 FORCE</div>
+                <div>2/10</div>
+            </div>
+            <div class="stat-box">
+                <div>🎨 STYLE</div>
+                <div>0/10</div>
+            </div>
+            <div class="stat-box">
+                <div>❤️ CŒUR</div>
+                <div>11/10</div>
+            </div>
+            <div class="stat-box">
+                <div>🍺 ALCOOL</div>
+                <div>9/10</div>
+            </div>
+        </div>
+        
+        <div class="profile-info">
+            <div class="info-title">🎯 Ce que je recherche :</div>
+            <div class="description">
+                Une femme entre 20 et 45 ans qui aime les hommes VRAIS, sans artifice !
+                <br>
+                Qui acceptera mes défauts (ils sont nombreux) et mes qualités (elles existent je vous jure) !
+                <br>
+                Une partenaire pour partager mes passions : PMU, manifestations, et soirées bar ! 🍻
+            </div>
+        </div>
+        
+        <div class="warning">
+            ⚠️ ATTENTION : JE SUIS PEUT-ÊTRE À 200 MÈTRES DE CHEZ TOI ! ⚠️
+        </div>
+        
+        <a href="#" class="contact-btn" onclick="alert('💕 Message envoyé ! Kiki va te répondre dans 2-3 bières ! 🍺')">
+            💌 CONTACTER KIKI 💌
+        </a>
+        
+        <marquee direction="left" scrollamount="3" style="background: #8B0000; color: #FFFF00; padding: 10px; margin: 20px 0;">
+            💋 KIKI EST CONNECTÉ MAINTENANT ! PROFITEZ-EN ! 🔥 CHAT GRATUIT ! 💕
+        </marquee>
+    </div>
+</body>
+</html>
